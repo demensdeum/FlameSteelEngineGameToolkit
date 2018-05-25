@@ -8,18 +8,15 @@ ObjectsMap::ObjectsMap(int width, int height) {
 
 }
 
-int ObjectsMap::indexAtXY(int x, int y) {
+int ObjectsMap::tileIndexAtXY(int x, int y) {
 	return x+y*width;
 }
 
 void ObjectsMap::addOrUpdateObject(shared_ptr<FSCObject> object) {
 
-	auto object = objectIndexToTileIndex(object->id);
-
-	if (object == nulptr)
+	if (objectIndexToTileIndex[object->id] == ObjectsMapNoTileIndex)
 	{
-		map<int, shared_ptr<FSCObject> > coordinateToObjectMap;
-		map<int, int> objectIndexToTileIndex;		
+
 	}
 	else
 	{
@@ -36,6 +33,9 @@ void ObjectsMap::removeAllObjects() {
 
 }
 
-void ObjectsMap::objectAtXY(int x, int y) {
+shared_ptr<FSCObject> ObjectsMap::objectAtXY(int x, int y) {
 
+	auto tileIndex = tileIndexAtXY(x, y);
+
+	return tileIndexToObject[tileIndex];
 }
