@@ -98,7 +98,7 @@ void FSEGTGameController::switchToState(int state) {
         exit(1);
     }
 
-    cout << "Switch controller to state: " << state << endl;
+    //cout << "Switch controller to state: " << state << endl;
     
     setCurrentController(controller);
 }
