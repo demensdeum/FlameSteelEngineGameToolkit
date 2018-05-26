@@ -33,7 +33,7 @@ public:
 	static void unhideObject(shared_ptr<FSCObject> object);
 
 	static void moveObject(shared_ptr<FSCObject> object);
-	static void movePositionVectorByRotationAndSpeed(shared_ptr<FSCObject> positionComponent, shared_ptr<FSCObject> eulerComponent, shared_ptr<FSCObject> speedComponent);;
+	static void movePositionVectorByRotationAndSpeed(shared_ptr<FSCObject> positionComponent, shared_ptr<FSCObject> eulerComponent, shared_ptr<FSCObject> speedComponent);
 
         static shared_ptr<string> getText(shared_ptr<FSCObject> object);
         static void setText(shared_ptr<string> text, shared_ptr<FSCObject> object);

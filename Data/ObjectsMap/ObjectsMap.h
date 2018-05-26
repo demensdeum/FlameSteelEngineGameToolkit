@@ -18,7 +18,7 @@ class ObjectsMap {
 public:
 	ObjectsMap(int width, int height);
 
-	void addOrUpdateObject(shared_ptr<FSCObject> object);
+	void handleObject(shared_ptr<FSCObject> object);
 	void removeObject(shared_ptr<FSCObject> object);
 	void removeAllObjects();
 
@@ -28,11 +28,10 @@ private:
 	int tileIndexAtXY(int x, int y);
 
 	map<int, shared_ptr<FSCObject> > tileIndexToObject;
-	map<int, int> objectIndexToTileIndex;
+	map<string, int> objectUUIDToTileIndex;
 
-	int width = 0;
-	int height = 0;
-
+	int width;
+	int height;
 };
 };
 };
