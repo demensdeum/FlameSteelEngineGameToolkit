@@ -7,6 +7,7 @@
 using namespace std;
 
 class FSCObject;
+class FSCObjects;
 
 namespace FlameSteelEngine {
 namespace GameToolkit {
@@ -20,12 +21,13 @@ public:
 	void removeObject(shared_ptr<FSCObject> object);
 	void removeAllObjects();
 
-	shared_ptr<FSCObject> objectAtXY(int x, int y);
+	shared_ptr<FSCObjects> objectsAtXY(int x, int y);
 
 private:
 	string tileIndexAtXY(int x, int y);
+	void addObjectToTileIndex(shared_ptr<FSCObject> object, string tileIndex);
 
-	map<string, shared_ptr<FSCObject> > tileIndexToObject;
+	map<string, shared_ptr<FSCObjects> > tileIndexToObjects;
 	map<string, string> objectUUIDToTileIndex;
 };
 };

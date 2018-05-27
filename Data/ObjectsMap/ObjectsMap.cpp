@@ -2,6 +2,7 @@
 #include <FlameSteelCore/FSCObject.h>
 #include <iostream>
 #include <FlameSteelEngineGameToolkit/Utils/FSEGTUtils.h>
+#include <FlameSteelCore/FSCObjects.h>
 
 using namespace FlameSteelEngine::GameToolkit;
 
@@ -33,16 +34,17 @@ void ObjectsMap::handleObject(shared_ptr<FSCObject> object) {
 
 		if (currentTileIndex.compare(tileIndex) != 0)
 		{
-			tileIndexToObject.erase(currentTileIndex);
+			auto objects = tileIndexToObjects[currentTileIndex];
+			objects->removeObject(object);
 
 			objectUUIDToTileIndex[object->uuid] = tileIndex;
-			tileIndexToObject[tileIndex] = object;
+			addObjectToTileIndex(object, tileIndex);
 		}
 	}
 	else
 	{
 		objectUUIDToTileIndex[object->uuid] = tileIndex;
-		tileIndexToObject[tileIndex] = object;
+		addObjectToTileIndex(object, tileIndex);
 	}
 }
 
@@ -55,28 +57,46 @@ void ObjectsMap::removeObject(shared_ptr<FSCObject> object) {
 	if (objectUUIDToTileIndex.find(object->uuid) != objectUUIDToTileIndex.end()) {
 
 		auto currentTileIndex = objectUUIDToTileIndex[object->uuid];
-		tileIndexToObject.erase(currentTileIndex);
+		auto objects = tileIndexToObjects[currentTileIndex];
+		objects->removeObject(object);
 		objectUUIDToTileIndex.erase(object->uuid);
 
 	}
 
 }
 
+void ObjectsMap::addObjectToTileIndex(shared_ptr<FSCObject> object, string tileIndex) {
+
+	if (tileIndexToObjects.find(tileIndex) != tileIndexToObjects.end()) {
+
+		auto objects = tileIndexToObjects[tileIndex];
+		objects->addObject(object);
+
+	}
+	else {
+
+		auto objects = make_shared<FSCObjects>();
+		objects->addObject(object);
+		tileIndexToObjects[tileIndex] = objects;
+		
+	}
+}
+
 void ObjectsMap::removeAllObjects() {
 
-	tileIndexToObject.clear();
+	tileIndexToObjects.clear();
 	objectUUIDToTileIndex.clear();
 
 }
 
-shared_ptr<FSCObject> ObjectsMap::objectAtXY(int x, int y) {
+shared_ptr<FSCObjects> ObjectsMap::objectsAtXY(int x, int y) {
 
 	auto tileIndex = tileIndexAtXY(x, y);
 
-	if (tileIndexToObject.find(tileIndex) != tileIndexToObject.end()) {
+	if (tileIndexToObjects.find(tileIndex) != tileIndexToObjects.end()) {
 
-			return tileIndexToObject[tileIndex];
+			return tileIndexToObjects[tileIndex];
 	}
 
-	return shared_ptr<FSCObject>();
+	return shared_ptr<FSCObjects>();
 }
