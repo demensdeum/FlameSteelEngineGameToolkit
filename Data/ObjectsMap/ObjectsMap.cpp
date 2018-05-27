@@ -34,8 +34,7 @@ void ObjectsMap::handleObject(shared_ptr<FSCObject> object) {
 
 		if (currentTileIndex.compare(tileIndex) != 0)
 		{
-			auto objects = tileIndexToObjects[currentTileIndex];
-			objects->removeObject(object);
+			removeObjectAtTileIndex(object, currentTileIndex);
 
 			objectUUIDToTileIndex[object->uuid] = tileIndex;
 			addObjectToTileIndex(object, tileIndex);
@@ -58,16 +57,22 @@ void ObjectsMap::removeObject(shared_ptr<FSCObject> object) {
 
 		auto currentTileIndex = objectUUIDToTileIndex[object->uuid];
 
-		auto objects = tileIndexToObjects[currentTileIndex];
+		removeObjectAtTileIndex(object, currentTileIndex);
+		objectUUIDToTileIndex.erase(object->uuid);
+
+	}
+
+}
+
+void ObjectsMap::removeObjectAtTileIndex(shared_ptr<FSCObject> object, string tileIndex) {
+
+		auto objects = tileIndexToObjects[tileIndex];
 		objects->removeObject(object);
 
 		if (objects->size() < 1)
 		{
-			tileIndexToObjects.erase(currentTileIndex);
-		}
-		objectUUIDToTileIndex.erase(object->uuid);
-
-	}
+			tileIndexToObjects.erase(tileIndex);
+		}	
 
 }
 

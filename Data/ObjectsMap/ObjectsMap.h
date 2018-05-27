@@ -26,6 +26,7 @@ public:
 private:
 	string tileIndexAtXY(int x, int y);
 	void addObjectToTileIndex(shared_ptr<FSCObject> object, string tileIndex);
+	void removeObjectAtTileIndex(shared_ptr<FSCObject> object, string tileIndex);
 
 	map<string, shared_ptr<FSCObjects> > tileIndexToObjects;
 	map<string, string> objectUUIDToTileIndex;
