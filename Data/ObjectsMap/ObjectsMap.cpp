@@ -57,8 +57,14 @@ void ObjectsMap::removeObject(shared_ptr<FSCObject> object) {
 	if (objectUUIDToTileIndex.find(object->uuid) != objectUUIDToTileIndex.end()) {
 
 		auto currentTileIndex = objectUUIDToTileIndex[object->uuid];
+
 		auto objects = tileIndexToObjects[currentTileIndex];
 		objects->removeObject(object);
+
+		if (objects->size() < 1)
+		{
+			tileIndexToObjects.erase(currentTileIndex);
+		}
 		objectUUIDToTileIndex.erase(object->uuid);
 
 	}
