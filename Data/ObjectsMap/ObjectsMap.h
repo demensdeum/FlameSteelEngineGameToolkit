@@ -11,12 +11,10 @@ class FSCObject;
 namespace FlameSteelEngine {
 namespace GameToolkit {
 
-static const int ObjectsMapNoTileIndex = -1;
-
 class ObjectsMap {
 
 public:
-	ObjectsMap(int width, int height);
+	ObjectsMap();
 
 	void handleObject(shared_ptr<FSCObject> object);
 	void removeObject(shared_ptr<FSCObject> object);
@@ -25,13 +23,10 @@ public:
 	shared_ptr<FSCObject> objectAtXY(int x, int y);
 
 private:
-	int tileIndexAtXY(int x, int y);
+	string tileIndexAtXY(int x, int y);
 
-	map<int, shared_ptr<FSCObject> > tileIndexToObject;
-	map<string, int> objectUUIDToTileIndex;
-
-	int width;
-	int height;
+	map<string, shared_ptr<FSCObject> > tileIndexToObject;
+	map<string, string> objectUUIDToTileIndex;
 };
 };
 };

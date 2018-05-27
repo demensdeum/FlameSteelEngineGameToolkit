@@ -5,15 +5,17 @@
 
 using namespace FlameSteelEngine::GameToolkit;
 
-ObjectsMap::ObjectsMap(int width, int height) {
-
-	this->width = width;
-	this->height = height;
+ObjectsMap::ObjectsMap() {
 
 }
 
-int ObjectsMap::tileIndexAtXY(int x, int y) {
-	return x+y*width;
+string ObjectsMap::tileIndexAtXY(int x, int y) {
+
+	string index = to_string(x);
+	index += string("-");
+	index += to_string(y);
+
+	return index;
 }
 
 void ObjectsMap::handleObject(shared_ptr<FSCObject> object) {
@@ -29,7 +31,7 @@ void ObjectsMap::handleObject(shared_ptr<FSCObject> object) {
 
 		auto currentTileIndex = objectUUIDToTileIndex[object->uuid];
 
-		if (currentTileIndex != tileIndex)
+		if (currentTileIndex.compare(tileIndex) != 0)
 		{
 			tileIndexToObject.erase(currentTileIndex);
 
@@ -68,11 +70,6 @@ void ObjectsMap::removeAllObjects() {
 }
 
 shared_ptr<FSCObject> ObjectsMap::objectAtXY(int x, int y) {
-
-	if (x < 0 || x >= width || y < 0 || y >= height)
-	{
-		return shared_ptr<FSCObject>();
-	}
 
 	auto tileIndex = tileIndexAtXY(x, y);
 
