@@ -69,6 +69,11 @@ void ObjectsMap::removeAllObjects() {
 
 shared_ptr<FSCObject> ObjectsMap::objectAtXY(int x, int y) {
 
+	if (x < 0 || x >= width || y < 0 || y >= height)
+	{
+		return shared_ptr<FSCObject>();
+	}
+
 	auto tileIndex = tileIndexAtXY(x, y);
 
 	if (tileIndexToObject.find(tileIndex) != tileIndexToObject.end()) {
