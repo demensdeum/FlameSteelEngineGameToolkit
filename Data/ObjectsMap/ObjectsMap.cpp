@@ -22,7 +22,7 @@ string ObjectsMap::tileIndexAtXY(int x, int y) {
 void ObjectsMap::handleObject(shared_ptr<FSCObject> object) {
 
 	if (object.get() == nullptr) {
-		throw "ObjectsMap: trying to handle nullptr object.";
+		throw logic_error("ObjectsMap: trying to handle nullptr object.");
 	}
 
 	auto objectPosition = FSEGTUtils::getObjectPosition(object);
@@ -50,7 +50,7 @@ void ObjectsMap::handleObject(shared_ptr<FSCObject> object) {
 void ObjectsMap::removeObject(shared_ptr<FSCObject> object) {
 
 	if (object.get() == nullptr) {
-		throw "ObjectsMap: trying to remove nullptr object.";
+		throw logic_error("ObjectsMap: trying to remove nullptr object.");
 	}
 
 	if (objectUUIDToTileIndex.find(object->uuid) != objectUUIDToTileIndex.end()) {

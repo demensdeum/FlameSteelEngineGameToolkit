@@ -74,6 +74,8 @@ shared_ptr <FSCObject> FSEGTFactory::makeOnSceneObject(
 shared_ptr<FSEGTSerializedModel> FSEGTFactory::makeSerializedModelComponent(shared_ptr<string> serializedModel) {
 
 	auto serializedModelComponent = make_shared<FSEGTSerializedModel>(serializedModel);
+	serializedModelComponent->setInstanceIdentifier(make_shared<string>(FSEGTConstComponentsSerializedModel));
+	serializedModelComponent->setClassIdentifier(make_shared<string>(FSEGTConstComponentsSerializedModel));
 	
 	return serializedModelComponent;
 }

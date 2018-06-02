@@ -14,6 +14,19 @@
 #include "FSEGTObjectsContext.h"
 
 FSEGTObjectsContext::FSEGTObjectsContext() {
+
+}
+
+shared_ptr<FSCObject> FSEGTObjectsContext::objectWithInstanceIdentifier(shared_ptr<string> instanceIdentifier) {
+
+	return objects->objectWithInstanceIdentifier(instanceIdentifier);
+
+}
+
+void FSEGTObjectsContext::setObjects(shared_ptr<FSCObjects> objects) {
+
+	this->objects = objects;
+
 }
 
 void FSEGTObjectsContext::removeAllObjects() {  
@@ -48,7 +61,9 @@ void FSEGTObjectsContext::updateObject(shared_ptr<FSCObject> object) {
 }
 
 void FSEGTObjectsContext::removeObject(shared_ptr<FSCObject> ) {
-    
+ 
+	throw "FSEGTObjectsContext::removeObject unimplemented";
+   
 }
 
 void FSEGTObjectsContext::subscribe(shared_ptr<FSEGTObjectContextDelegate> delegate) {

@@ -54,7 +54,7 @@ void FSEGTGameController::startGameFromState(int startState) {
     gameData = make_shared<FSEGTGameData>();
 
     objectsContext = make_shared<FSEGTObjectsContext>();
-    objectsContext->objects = gameData->getGameObjects();
+    objectsContext->setObjects(gameData->getGameObjects());
 
     objectsContext->subscribe(ioSystem);
     

@@ -26,8 +26,10 @@ public:
     FSEGTObjectsContext();
     virtual ~FSEGTObjectsContext();
     
-    shared_ptr<FSCObjects> objects;
+	shared_ptr<FSCObject> objectWithInstanceIdentifier(shared_ptr<string> instanceIdentifier);
     
+	void setObjects(shared_ptr<FSCObjects> objects);
+
     void removeAllObjects();
     
     void addObject(shared_ptr<FSCObject> object);
@@ -40,6 +42,7 @@ public:
 private:
 
     vector<shared_ptr<FSEGTObjectContextDelegate> > subscribers;
+    shared_ptr<FSCObjects> objects;
     
 };
 
