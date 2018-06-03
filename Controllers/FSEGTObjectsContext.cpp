@@ -15,6 +15,8 @@
 
 FSEGTObjectsContext::FSEGTObjectsContext() {
 
+	objects = make_shared<FSCObjects>();
+
 }
 
 shared_ptr<FSCObject> FSEGTObjectsContext::objectWithInstanceIdentifier(shared_ptr<string> instanceIdentifier) {
