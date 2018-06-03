@@ -80,18 +80,6 @@ shared_ptr<FSEGTSerializedModel> FSEGTFactory::makeSerializedModelComponent(shar
 	return serializedModelComponent;
 }
 
-shared_ptr <FSEGTText> FSEGTFactory::makeTextComponent(shared_ptr<string> fontResourceIdentifier, shared_ptr<string> text) {
-
-    auto textComponent = make_shared<FSEGTText>();
-    textComponent->setInstanceIdentifier(make_shared<string>(FSEGTConstComponentsText));
-    textComponent->setClassIdentifier(make_shared<string>(FSEGTConstComponentsText));
-
-    textComponent->fontResourceIdentifier = fontResourceIdentifier;
-    textComponent->text = text;
-
-    return textComponent;
-}
-
 shared_ptr <FSEGTVector> FSEGTFactory::makeScaleComponent(float width, float height, float depth) {
     
     auto scaleComponent = make_shared<FSEGTVector>();

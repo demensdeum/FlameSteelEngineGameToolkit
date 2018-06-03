@@ -12,6 +12,7 @@
 #include <FlameSteelEngineGameToolkit/Data/Components/Vector/FSEGTVector.h>
 #include <string.h>
 
+class FSEGTText;
 class FSEGTSerializedModel;
 
 class FSEGTUtils: public FSCObject {
@@ -36,8 +37,6 @@ public:
 	static void movePositionVectorByRotationAndSpeed(shared_ptr<FSCObject> positionComponent, shared_ptr<FSCObject> eulerComponent, shared_ptr<FSCObject> speedComponent);
 
         static shared_ptr<string> getText(shared_ptr<FSCObject> object);
-        static void setText(shared_ptr<string> text, shared_ptr<FSCObject> object);
-        static shared_ptr<string> getFont(shared_ptr<FSCObject> object);
 
         static shared_ptr<string> getSpritePath(shared_ptr<FSCObject> object);        
         static shared_ptr<string> getModelFilePathForObject(shared_ptr<FSCObject> object);

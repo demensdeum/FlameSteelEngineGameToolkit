@@ -23,11 +23,10 @@ using namespace std;
 
 class FSEGTText : public FSCObject {
 public:
-    FSEGTText();
+    FSEGTText(shared_ptr<string> text);
     FSEGTText(const FSEGTText& orig);
     virtual ~FSEGTText();
     
-    shared_ptr<string> fontResourceIdentifier;
     shared_ptr<string> text;
     
 private:

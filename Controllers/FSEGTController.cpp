@@ -13,7 +13,7 @@
 using namespace std;
 
 FSEGTController::FSEGTController() {
-	// TODO Auto-generated constructor stub
+
 	gameController = nullptr;
 	controllerMessage = shared_ptr<FSCMessage>();
 	listener = nullptr;

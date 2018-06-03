@@ -61,17 +61,6 @@ int FSEGTUtils::getFramesCount(shared_ptr<FSCObject> object) {
     return spriteComponent->framesCount;
 }
 
-shared_ptr<string> FSEGTUtils::getFont(shared_ptr<FSCObject> object) {
-
-    auto textSharedPointer = object->getComponent(make_shared<string>(FSEGTConstComponentsText));
-
-    auto textComponent = (FSEGTText *) textSharedPointer.get();
-
-    auto fontResourceIdentifier = textComponent->fontResourceIdentifier;
-
-    return fontResourceIdentifier;
-}
-
 shared_ptr<FSEGTSerializedModel> FSEGTUtils::getSerializedModel(shared_ptr<FSCObject> object) {
 
 	    auto serializedModelComponent = object->getComponent(make_shared<string>(FSEGTConstComponentsSerializedModel));
@@ -177,23 +166,6 @@ shared_ptr<string> FSEGTUtils::getText(shared_ptr<FSCObject> object) {
     return shared_ptr<string>();
 }
 
-void FSEGTUtils::setText(shared_ptr<string> text, shared_ptr<FSCObject> object) {
-
-    auto textSharedPointer = object->getComponent(make_shared<string>(FSEGTConstComponentsText));
-
-    if (textSharedPointer.get() == nullptr) {
-
-        object->addComponent(FSEGTFactory::makeTextComponent(shared_ptr<string>(), make_shared<string>(FSEGTConstComponentsText)));
-
-    }
-
-    textSharedPointer = object->getComponent(make_shared<string>(FSEGTConstComponentsText));
-    
-    auto textComponent = (FSEGTText *) textSharedPointer.get();
-    
-    textComponent->text = text;
-}
-
 shared_ptr<FSEGTVector> FSEGTUtils::getObjectPosition(shared_ptr<FSCObject> object) {
 
     auto positionComponent = object->getComponent(make_shared<string>(FSEGTConstComponentsPosition));
@@ -289,6 +261,8 @@ void FSEGTUtils::setSpeedForObject(int speed, shared_ptr<FSCObject> object) {
 }
 
 void FSEGTUtils::setAttackActionComponentForObject(shared_ptr<FSCObject> ) {
+
+	throw logic_error("FSEGTUtils::setAttackActionComponentForObject unimplemented");
 
 }
 

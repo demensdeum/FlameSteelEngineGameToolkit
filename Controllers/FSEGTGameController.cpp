@@ -24,7 +24,9 @@ static const int FSEGTGameControllerFpsLock = 60;
 static const float FSEGTGameControllerStepTimePerSecond = 1.0 / FSEGTGameControllerFpsLock; // one second / fps lock
 
 FSEGTGameController::FSEGTGameController() {
-    
+
+	srand (time(nullptr));
+
     resourcesManager = make_shared<FSCResourcesManager>();
     resourcesLoader = make_shared<FSCResourcesLoader>();
 

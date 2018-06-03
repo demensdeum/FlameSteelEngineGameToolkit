@@ -48,11 +48,10 @@ public:
         
 	static shared_ptr <FSEGTVector> makePositionComponent(float x = 0, float y = 0, float z = 0);
 	static shared_ptr <FSEGTVector> makeRotationComponent(float rotationX, float rotationY, float rotationZ);
-        static shared_ptr <FSEGTVector> makeSpeedComponent(int speed);
+      static shared_ptr <FSEGTVector> makeSpeedComponent(int speed);
 	static shared_ptr <FSEGTSprite> makeSpriteComponent(shared_ptr<string> spriteFilePath);
-        static shared_ptr <FSEGTText>   makeTextComponent(shared_ptr<string> fontResourceIdentifier, shared_ptr<string> text);
-        static shared_ptr <FSEGTModelReference>  makeModelReferenceComponent(shared_ptr<string> modelFilePath);
-        static shared_ptr <FSEGTVector> makeScaleComponent(float width, float height, float depth);
+      static shared_ptr <FSEGTModelReference>  makeModelReferenceComponent(shared_ptr<string> modelFilePath);
+      static shared_ptr <FSEGTVector> makeScaleComponent(float width, float height, float depth);
 	static shared_ptr<FSEGTSerializedModel> makeSerializedModelComponent(shared_ptr<string> serializedModel);
 };
 
