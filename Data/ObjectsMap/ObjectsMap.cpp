@@ -3,6 +3,7 @@
 #include <iostream>
 #include <FlameSteelEngineGameToolkit/Utils/FSEGTUtils.h>
 #include <FlameSteelCore/FSCObjects.h>
+#include <FlameSteelEngineGameToolkit/Const/FSEGTConst.h>
 
 using namespace FlameSteelEngine::GameToolkit;
 
@@ -23,6 +24,11 @@ void ObjectsMap::handleObject(shared_ptr<FSCObject> object) {
 
 	if (object.get() == nullptr) {
 		throw logic_error("ObjectsMap: trying to handle nullptr object.");
+	}
+
+	if (object->getClassIdentifier()->compare(FSEGTConstObjectClassIdentifierOnScreenText) == 0)
+	{
+		return;
 	}
 
 	auto objectPosition = FSEGTUtils::getObjectPosition(object);

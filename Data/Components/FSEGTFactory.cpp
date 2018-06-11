@@ -24,7 +24,7 @@ shared_ptr <FSCObject> FSEGTFactory::makeOnScreenText(
 						  shared_ptr<string> text, 
 						  float x, float y)
 {
-	if (x < 1 || y < 1 || x > 0 || y > 0)
+	if (x < 0 || y < 0 || x > 1 || y > 1)
 	{
 		throw logic_error("x and y should be in range 0.0-1.0 relative to screen size");
 	}
