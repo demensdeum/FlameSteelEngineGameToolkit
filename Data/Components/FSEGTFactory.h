@@ -44,6 +44,10 @@ public:
                                         int speed                 
                                       );
 
+	static shared_ptr <FSCObject> makeOnScreenText(
+						  shared_ptr<string> text, 
+						  float x, float y);
+
         // components
         
 	static shared_ptr <FSEGTVector> makePositionComponent(float x = 0, float y = 0, float z = 0);

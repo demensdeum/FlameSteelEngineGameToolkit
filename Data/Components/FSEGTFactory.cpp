@@ -12,13 +12,37 @@
 
 shared_ptr <FSEGTModelReference> FSEGTFactory::makeModelReferenceComponent(shared_ptr<string> modelFilePath) {
 
-
     auto component = make_shared<FSEGTModelReference>(modelFilePath);
 
     component->setClassIdentifier(make_shared<string>(FSEGTConstComponentsModel));
     component->setInstanceIdentifier(make_shared<string>(FSEGTConstComponentsModel));
 
     return component;
+}
+
+shared_ptr <FSCObject> FSEGTFactory::makeOnScreenText(
+						  shared_ptr<string> text, 
+						  float x, float y)
+{
+	if (x < 1 || y < 1 || x > 0 || y > 0)
+	{
+		throw logic_error("x and y should be in range 0.0-1.0 relative to screen size");
+	}
+
+	auto object = make_shared<FSCObject>();
+
+	object->setClassIdentifier(make_shared<string>(FSEGTConstObjectClassIdentifierOnScreenText));
+	object->setInstanceIdentifier(make_shared<string>(FSEGTConstObjectClassIdentifierOnScreenText));
+
+	auto textComponent = make_shared<FSEGTText>(text);
+	auto screenPositionComponent = FSEGTFactory::makePositionComponent(x, y, 0);
+	screenPositionComponent->setClassIdentifier(make_shared<string>(FSEGTConstComponentsRelativeScreenPosition));
+	screenPositionComponent->setInstanceIdentifier(make_shared<string>(FSEGTConstComponentsRelativeScreenPosition));
+
+	object->addComponent(textComponent);
+	object->addComponent(screenPositionComponent);
+
+	return object;
 }
 
 shared_ptr <FSCObject> FSEGTFactory::makeOnSceneObject(

@@ -28,5 +28,8 @@ static const string FSEGTConstComponentsDeleted = "Deleted";
 static const string FSEGTConstComponentsText = "Text";
 static const string FSEGTConstComponentsModel = "3D Model";
 static const string FSEGTConstComponentsSerializedModel = "3D Serialized Model";
+static const string FSEGTConstComponentsRelativeScreenPosition = "Relative screen position";
+
+static const string FSEGTConstObjectClassIdentifierOnScreenText = "On screen text";
 
 #endif
