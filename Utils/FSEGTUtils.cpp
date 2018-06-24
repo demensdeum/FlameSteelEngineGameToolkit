@@ -61,6 +61,14 @@ int FSEGTUtils::getFramesCount(shared_ptr<FSCObject> object) {
     return spriteComponent->framesCount;
 }
 
+shared_ptr<FSEGTVector> FSEGTUtils::getObjectRelativeScreenPosition(shared_ptr<FSCObject> object) {
+
+	auto relativeScreenPositionComponent = object->getComponent(make_shared<string>(FSEGTConstComponentsRelativeScreenPosition));
+
+	return static_pointer_cast<FSEGTVector>(relativeScreenPositionComponent);
+
+}
+
 shared_ptr<FSEGTSerializedModel> FSEGTUtils::getSerializedModel(shared_ptr<FSCObject> object) {
 
 	    auto serializedModelComponent = object->getComponent(make_shared<string>(FSEGTConstComponentsSerializedModel));

@@ -29,6 +29,7 @@ public:
         static shared_ptr<FSEGTVector> getObjectPosition(shared_ptr<FSCObject> object);
         static shared_ptr<FSEGTVector> getObjectScale(shared_ptr<FSCObject> object);
         static shared_ptr<FSEGTVector> getObjectRotation(shared_ptr<FSCObject> object);
+	static shared_ptr<FSEGTVector> getObjectRelativeScreenPosition(shared_ptr<FSCObject> object);
         
 	static void hideObject(shared_ptr<FSCObject> object);
 	static void unhideObject(shared_ptr<FSCObject> object);
