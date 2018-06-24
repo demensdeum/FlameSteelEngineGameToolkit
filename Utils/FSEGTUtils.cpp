@@ -157,21 +157,11 @@ shared_ptr<string> FSEGTUtils::platformPath(const char *relativePath) {
     return platformPath;
 }
 
-shared_ptr<string> FSEGTUtils::getText(shared_ptr<FSCObject> object) {
+shared_ptr<FSEGTText> FSEGTUtils::getText(shared_ptr<FSCObject> object) {
 
     auto textSharedPointer = object->getComponent(make_shared<string>(FSEGTConstComponentsText));
 
-    auto textComponent = (FSEGTText *) textSharedPointer.get();
-
-    if (textComponent != nullptr) {
-
-        auto text = textComponent->text;
-
-        return text;
-
-    }
-
-    return shared_ptr<string>();
+    return static_pointer_cast<FSEGTText>(textSharedPointer);
 }
 
 shared_ptr<FSEGTVector> FSEGTUtils::getObjectPosition(shared_ptr<FSCObject> object) {

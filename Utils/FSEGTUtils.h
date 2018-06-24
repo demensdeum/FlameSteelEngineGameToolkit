@@ -37,7 +37,7 @@ public:
 	static void moveObject(shared_ptr<FSCObject> object);
 	static void movePositionVectorByRotationAndSpeed(shared_ptr<FSCObject> positionComponent, shared_ptr<FSCObject> eulerComponent, shared_ptr<FSCObject> speedComponent);
 
-        static shared_ptr<string> getText(shared_ptr<FSCObject> object);
+        static shared_ptr<FSEGTText> getText(shared_ptr<FSCObject> object);
 
         static shared_ptr<string> getSpritePath(shared_ptr<FSCObject> object);        
         static shared_ptr<string> getModelFilePathForObject(shared_ptr<FSCObject> object);
