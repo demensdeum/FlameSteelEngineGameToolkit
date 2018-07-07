@@ -8,7 +8,7 @@
 #ifndef FSEGTSIMPLEDIRECTION_H_
 #define FSEGTSIMPLEDIRECTION_H_
 
-enum {
+enum FSEGTSimpleDirection {
 	FSEGTSimpleDirectionUp,
 	FSEGTSimpleDirectionDown,
 	FSEGTSimpleDirectionLeft,

@@ -13,7 +13,7 @@ FSEGTInputController::FSEGTInputController() {
 	this->rightKeyPressed = false;
 	this->downKeyPressed = false;
 	this->upKeyPressed = false;
-	this->generateMapPressed = false;
+	this->useKeyPressed = false;
 
 	this->rotateLeftKeyPressed = false;
 	this->rotateRightKeyPressed = false;
@@ -44,17 +44,13 @@ void FSEGTInputController::clearKeys() {
 	this->rightKeyPressed = false;
 	this->downKeyPressed = false;
 	this->upKeyPressed = false;
-	this->generateMapPressed = false;
+	this->useKeyPressed = false;
 
 	this->rotateLeftKeyPressed = false;
 	this->rotateRightKeyPressed = false;
 
 	this->exitKeyPressed = false;
 	this->shootKeyPressed = false;
-}
-
-bool FSEGTInputController::isGenerateMapKeyPressed() {
-	return this->generateMapPressed;
 }
 
 bool FSEGTInputController::isExitKeyPressed() {
@@ -81,6 +77,10 @@ bool FSEGTInputController::isShootKeyPressed() {
 	return this->shootKeyPressed;
 }
 
+bool FSEGTInputController::isUseKeyPressed() {
+	return this->useKeyPressed;
+}
+ 
 void FSEGTInputController::pollPointerPosition() {
 
 }

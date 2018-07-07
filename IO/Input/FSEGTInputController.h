@@ -15,7 +15,6 @@ class FSEGTInputController: public FSCObject {
 public:
 	FSEGTInputController();
 
-
 	virtual bool isLeftKeyPressed();
 	virtual bool isRightKeyPressed();
 	virtual bool isUpKeyPressed();
@@ -24,22 +23,21 @@ public:
 	virtual bool isRotateLeftKeyPressed();
 	virtual bool isRotateRightKeyPressed();
 
+	virtual bool isUseKeyPressed();
 	virtual bool isShootKeyPressed();
 	virtual bool isExitKeyPressed();
-
-	virtual bool isGenerateMapKeyPressed();
 
 	virtual void pollKey();
 	virtual void clearKeys();
 
 	virtual void pollPointerDiff();
-        virtual void pollPointerPosition();
+	virtual void pollPointerPosition();
         
 	virtual int getPointerXdiff();
-        virtual int getPointerYdiff();
+	virtual int getPointerYdiff();
         
-        virtual int getPointerX();
-        virtual int getPointerY();
+	virtual int getPointerX();
+	virtual int getPointerY();
 
 	virtual void clearPointer();
 
@@ -49,18 +47,17 @@ public:
 
 public:
     
-	bool leftKeyPressed;
-	bool rightKeyPressed;
-	bool downKeyPressed;
-	bool upKeyPressed;
-	bool exitKeyPressed;
+	bool leftKeyPressed = false;
+	bool rightKeyPressed = false;
+	bool downKeyPressed = false;
+	bool upKeyPressed = false;
+	bool exitKeyPressed = false;
 
-	bool shootKeyPressed;
+	bool useKeyPressed = false;
+	bool shootKeyPressed = false;
 
-	bool rotateLeftKeyPressed;
-	bool rotateRightKeyPressed;
-
-	bool generateMapPressed;
+	bool rotateLeftKeyPressed = false;
+	bool rotateRightKeyPressed = false;
 };
 
 #endif /* FSEGTINPUTCONTROLLER_H_ */
