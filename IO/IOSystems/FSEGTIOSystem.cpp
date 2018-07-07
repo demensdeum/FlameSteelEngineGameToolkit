@@ -20,6 +20,10 @@ void FSEGTIOSystem::initialize(shared_ptr<FSEGTIOSystemParams> ) {
 
 }
 
+void FSEGTIOSystem::stop() {
+
+}
+
 FSEGTIOSystem::~FSEGTIOSystem() {
 	// TODO Auto-generated destructor stub
 }

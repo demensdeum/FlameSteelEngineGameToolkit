@@ -76,7 +76,7 @@ void FSEGTObjectsContext::subscribe(shared_ptr<FSEGTObjectContextDelegate> deleg
 
 void FSEGTObjectsContext::unsubscribe(shared_ptr<FSEGTObjectContextDelegate> delegate) {
     
-    for (uint i = 0; i < subscribers.size(); i++) {
+    for (int i = 0; i < subscribers.size(); i++) {
         
         auto subscriber = subscribers.at(i);
         

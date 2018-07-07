@@ -34,7 +34,9 @@ public:
 
 	shared_ptr<FSEGTRenderer> renderer;
 	shared_ptr<FSEGTInputController> inputController;
-        shared_ptr<FSEGTAudioPlayer> audioPlayer;
+      shared_ptr<FSEGTAudioPlayer> audioPlayer;
+
+	virtual void stop();
 };
 
 #endif /* FSEGTIOSYSTEM_H_ */
