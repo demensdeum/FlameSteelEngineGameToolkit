@@ -23,6 +23,8 @@ public:
         static int getCurrentFrame(shared_ptr<FSCObject> object);
         static void updateObjectAnimationTick(shared_ptr<FSCObject> object);
 
+	static bool objectContainsComponentWithIdentifier(shared_ptr<FSCObject> object, shared_ptr<string> identifier);
+
 	static void setAttackActionComponentForObject(shared_ptr<FSCObject> object);
 	static void setSpeedForObject(int speed, shared_ptr<FSCObject> object);
 

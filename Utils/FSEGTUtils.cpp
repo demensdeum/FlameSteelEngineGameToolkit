@@ -47,6 +47,12 @@ int FSEGTUtils::getCurrentFrame(shared_ptr<FSCObject> object) {
     return spriteComponent->frameIndex;
 }
 
+static bool objectContainsComponentWithIdentifier(shared_ptr<FSCObject> object, shared_ptr<string> identifier) {
+
+	return object->containsComponentWithIdentifier(identifier);
+
+}
+
 int FSEGTUtils::getFramesCount(shared_ptr<FSCObject> object) {
 
     auto spriteComponentSharedPointer = object->getComponent(make_shared<string>(FSEGTConstComponentsSprite));
