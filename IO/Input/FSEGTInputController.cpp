@@ -91,12 +91,12 @@ void FSEGTInputController::pollPointerDiff() {
 
 int FSEGTInputController::getPointerXdiff() {
 
-	return 0;
+	return pointerXdiff;
 }
 
 int FSEGTInputController::getPointerYdiff() {
 
-	return 0;
+	return pointerYdiff;
 }
 
 int FSEGTInputController::getPointerX() {

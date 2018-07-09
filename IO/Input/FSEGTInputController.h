@@ -58,6 +58,9 @@ public:
 
 	bool rotateLeftKeyPressed = false;
 	bool rotateRightKeyPressed = false;
+
+	int pointerXdiff = 0;
+	int pointerYdiff = 0;
 };
 
 #endif /* FSEGTINPUTCONTROLLER_H_ */
