@@ -33,6 +33,13 @@ FSEGTUtils::FSEGTUtils() {
 
 }
 
+bool FSEGTUtils::contains3D(shared_ptr<FSCObject> object) {
+
+	return object->containsComponentWithIdentifier(make_shared<string>(FSEGTConstComponentsModel)) || 
+				object->containsComponentWithIdentifier(make_shared<string>(FSEGTConstComponentsSerializedModel));
+
+}
+
 int FSEGTUtils::getCurrentFrame(shared_ptr<FSCObject> object) {
 
     auto spriteComponentSharedPointer = object->getComponent(make_shared<string>(FSEGTConstComponentsSprite));
@@ -150,9 +157,8 @@ shared_ptr<string> FSEGTUtils::platformPath(const char *relativePath) {
 
     if (!realpath(relativePathBuffer, absolutePath)) {
 
-        cout << "FSEGTUtils: Cannot resolve path \"" << relativePathBuffer << "\" to realpath: " << strerror(errno) << endl;
+	throw logic_error("Cannot resolve path");
 
-        exit(1);
     }
 
     char *imagePath = absolutePath;
