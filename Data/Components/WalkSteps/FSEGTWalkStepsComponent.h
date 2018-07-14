@@ -9,11 +9,11 @@
 #define DATA_COMPONENTS_WALKSTEPS_FSEGTWALKSTEPSCOMPONENT_H_
 
 #include <FlameSteelEngineGameToolkit/Data/Components/Vector/FSEGTVector.h>
-#include <FlameSteelCore/FSCObject.h>
+#include <FlameSteelCore/Object.h>
 #include <vector>
 #include <memory>
 
-class FSEGTWalkStepsComponent: public FSCObject {
+class FSEGTWalkStepsComponent: public Object {
 public:
 	FSEGTWalkStepsComponent();
 

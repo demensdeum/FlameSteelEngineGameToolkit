@@ -14,9 +14,11 @@
 #ifndef FSEGTCURSOR_H
 #define FSEGTCURSOR_H
 
-#include <FlameSteelCore/FSCObject.h>
+#include <FlameSteelCore/Object.h>
 
-class FSEGTCursor: FSCObject {
+using namespace FlameSteelCore;
+
+class FSEGTCursor: Object {
 public:
     FSEGTCursor();
     FSEGTCursor(const FSEGTCursor& orig);

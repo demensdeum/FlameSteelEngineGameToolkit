@@ -1,8 +1,8 @@
 #include "ObjectsMap.h"
-#include <FlameSteelCore/FSCObject.h>
+#include <FlameSteelCore/Object.h>
 #include <iostream>
 #include <FlameSteelEngineGameToolkit/Utils/FSEGTUtils.h>
-#include <FlameSteelCore/FSCObjects.h>
+#include <FlameSteelCore/Objects.h>
 #include <FlameSteelEngineGameToolkit/Const/FSEGTConst.h>
 
 using namespace FlameSteelEngine::GameToolkit;
@@ -20,7 +20,7 @@ string ObjectsMap::tileIndexAtXY(int x, int y) {
 	return index;
 }
 
-void ObjectsMap::handleObject(shared_ptr<FSCObject> object) {
+void ObjectsMap::handleObject(shared_ptr<Object> object) {
 
 	if (object.get() == nullptr) {
 		throw logic_error("ObjectsMap: trying to handle nullptr object.");
@@ -53,7 +53,7 @@ void ObjectsMap::handleObject(shared_ptr<FSCObject> object) {
 	}
 }
 
-void ObjectsMap::removeObject(shared_ptr<FSCObject> object) {
+void ObjectsMap::removeObject(shared_ptr<Object> object) {
 
 	if (object.get() == nullptr) {
 		throw logic_error("ObjectsMap: trying to remove nullptr object.");
@@ -70,7 +70,7 @@ void ObjectsMap::removeObject(shared_ptr<FSCObject> object) {
 
 }
 
-void ObjectsMap::removeObjectAtTileIndex(shared_ptr<FSCObject> object, string tileIndex) {
+void ObjectsMap::removeObjectAtTileIndex(shared_ptr<Object> object, string tileIndex) {
 
 		auto objects = tileIndexToObjects[tileIndex];
 		objects->removeObject(object);
@@ -82,7 +82,7 @@ void ObjectsMap::removeObjectAtTileIndex(shared_ptr<FSCObject> object, string ti
 
 }
 
-void ObjectsMap::addObjectToTileIndex(shared_ptr<FSCObject> object, string tileIndex) {
+void ObjectsMap::addObjectToTileIndex(shared_ptr<Object> object, string tileIndex) {
 
 	if (tileIndexToObjects.find(tileIndex) != tileIndexToObjects.end()) {
 
@@ -92,7 +92,7 @@ void ObjectsMap::addObjectToTileIndex(shared_ptr<FSCObject> object, string tileI
 	}
 	else {
 
-		auto objects = make_shared<FSCObjects>();
+		auto objects = make_shared<Objects>();
 		objects->addObject(object);
 		tileIndexToObjects[tileIndex] = objects;
 		
@@ -106,7 +106,7 @@ void ObjectsMap::removeAllObjects() {
 
 }
 
-shared_ptr<FSCObjects> ObjectsMap::objectsAtXY(int x, int y) {
+shared_ptr<Objects> ObjectsMap::objectsAtXY(int x, int y) {
 
 	auto tileIndex = tileIndexAtXY(x, y);
 
@@ -115,5 +115,5 @@ shared_ptr<FSCObjects> ObjectsMap::objectsAtXY(int x, int y) {
 			return tileIndexToObjects[tileIndex];
 	}
 
-	return shared_ptr<FSCObjects>();
+	return shared_ptr<Objects>();
 }

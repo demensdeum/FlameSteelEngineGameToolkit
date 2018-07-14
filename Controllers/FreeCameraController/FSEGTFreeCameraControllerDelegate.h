@@ -5,13 +5,18 @@
 
 using namespace std;
 
-class FSCObject;
+namespace FlameSteelCore {
+class Object;
+};
+
+using namespace FlameSteelCore;
+
 class FSEGTFreeCameraController;
 
 class FSEGTFreeCameraControllerDelegate {
 
 public:
-	virtual void freeCameraControllerDidUpdateCamera(shared_ptr<FSEGTFreeCameraController> freeCameraController, shared_ptr<FSCObject> camera);
+	virtual void freeCameraControllerDidUpdateCamera(shared_ptr<FSEGTFreeCameraController> freeCameraController, shared_ptr<Object> camera);
 
 };
 

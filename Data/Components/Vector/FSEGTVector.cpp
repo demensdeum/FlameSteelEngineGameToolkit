@@ -4,12 +4,12 @@
 #include <math.h>
 
 int FSEGTVector::getTileX() {
-	int tileX = this->x / FSEGTGameMapTileSize;
+	int tileX = this->x / GameMapTileSize;
 	return tileX;
 }
 
 int FSEGTVector::getTileY() {
-	int tileY = this->y / FSEGTGameMapTileSize;
+	int tileY = this->y / GameMapTileSize;
 	return tileY;
 }
 
@@ -32,7 +32,7 @@ shared_ptr<FSEGTVector> FSEGTVector::vectorXYZ(float x, float y, float z) {
 	return vector;
 }
 
-shared_ptr<FSCObject> FSEGTVector::copy() {
+shared_ptr<Object> FSEGTVector::copy() {
 	shared_ptr<FSEGTVector> copiedVector(new FSEGTVector);
 
 	copiedVector->x = this->x;

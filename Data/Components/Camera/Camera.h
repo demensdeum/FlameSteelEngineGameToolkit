@@ -5,7 +5,7 @@
  */
 
 /* 
- * File:   FSEGTCamera.h
+ * File:   Camera.h
  * Author: demensdeum
  *
  * Created on February 19, 2017, 12:32 PM
@@ -16,13 +16,19 @@
 
 #include <FlameSteelEngineGameToolkit/Data/Components/Vector/FSEGTVector.h>
 
+#include <FlameSteelCore/Object.h>
 #include <memory>
 
-class FSEGTCamera: FSCObject {
+using namespace FlameSteelCore;
+
+namespace FlameSteelEngine {
+namespace GameToolkit {
+
+class Camera: Object {
 public:
-    FSEGTCamera();
-    FSEGTCamera(const FSEGTCamera& orig);
-    virtual ~FSEGTCamera();
+    Camera();
+    Camera(const Camera& orig);
+    virtual ~Camera();
     
     shared_ptr<FSEGTVector> position;
     shared_ptr<FSEGTVector> direction;
@@ -39,5 +45,7 @@ private:
 
 };
 
+}
+}
 #endif /* FSEGTCAMERA_H */
 

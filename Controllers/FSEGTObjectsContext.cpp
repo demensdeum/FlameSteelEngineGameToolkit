@@ -15,17 +15,17 @@
 
 FSEGTObjectsContext::FSEGTObjectsContext() {
 
-	objects = make_shared<FSCObjects>();
+	objects = make_shared<Objects>();
 
 }
 
-shared_ptr<FSCObject> FSEGTObjectsContext::objectWithInstanceIdentifier(shared_ptr<string> instanceIdentifier) {
+shared_ptr<Object> FSEGTObjectsContext::objectWithInstanceIdentifier(shared_ptr<string> instanceIdentifier) {
 
 	return objects->objectWithInstanceIdentifier(instanceIdentifier);
 
 }
 
-void FSEGTObjectsContext::setObjects(shared_ptr<FSCObjects> objects) {
+void FSEGTObjectsContext::setObjects(shared_ptr<Objects> objects) {
 
 	this->objects = objects;
 
@@ -42,7 +42,7 @@ void FSEGTObjectsContext::removeAllObjects() {
     }    
 }
 
-void FSEGTObjectsContext::addObject(shared_ptr<FSCObject> object) {
+void FSEGTObjectsContext::addObject(shared_ptr<Object> object) {
     
     objects->addObject(object);
     
@@ -53,7 +53,7 @@ void FSEGTObjectsContext::addObject(shared_ptr<FSCObject> object) {
     }
 }
 
-void FSEGTObjectsContext::updateObject(shared_ptr<FSCObject> object) {
+void FSEGTObjectsContext::updateObject(shared_ptr<Object> object) {
     
     for (auto subscriber : subscribers) {
         
@@ -62,7 +62,7 @@ void FSEGTObjectsContext::updateObject(shared_ptr<FSCObject> object) {
     }    
 }
 
-void FSEGTObjectsContext::removeObject(shared_ptr<FSCObject> ) {
+void FSEGTObjectsContext::removeObject(shared_ptr<Object> ) {
  
 	throw "FSEGTObjectsContext::removeObject unimplemented";
    

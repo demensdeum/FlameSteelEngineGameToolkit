@@ -20,7 +20,7 @@ shared_ptr <FSEGTModelReference> FSEGTFactory::makeModelReferenceComponent(share
     return component;
 }
 
-shared_ptr <FSCObject> FSEGTFactory::makeOnScreenText(
+shared_ptr <Object> FSEGTFactory::makeOnScreenText(
 						  shared_ptr<string> text, 
 						  float x, float y)
 {
@@ -29,7 +29,7 @@ shared_ptr <FSCObject> FSEGTFactory::makeOnScreenText(
 		throw logic_error("x and y should be in range 0.0-1.0 relative to screen size");
 	}
 
-	auto object = make_shared<FSCObject>();
+	auto object = make_shared<Object>();
 
 	object->setClassIdentifier(make_shared<string>(FSEGTConstObjectClassIdentifierOnScreenText));
 	object->setInstanceIdentifier(make_shared<string>(FSEGTConstObjectClassIdentifierOnScreenText));
@@ -45,7 +45,7 @@ shared_ptr <FSCObject> FSEGTFactory::makeOnScreenText(
 	return object;
 }
 
-shared_ptr <FSCObject> FSEGTFactory::makeOnSceneObject(
+shared_ptr <Object> FSEGTFactory::makeOnSceneObject(
         shared_ptr<string> classIdentifier,
         shared_ptr<string> instanceIdentifier,
         shared_ptr<string> spriteFilePath,
@@ -57,7 +57,7 @@ shared_ptr <FSCObject> FSEGTFactory::makeOnSceneObject(
         int speed
         ) {
     
-    auto onSceneObject = make_shared<FSCObject>();
+    auto onSceneObject = make_shared<Object>();
 
     onSceneObject->setClassIdentifier(classIdentifier);
     onSceneObject->setInstanceIdentifier(instanceIdentifier);

@@ -8,11 +8,13 @@
 #ifndef FSEGTVECTOR_H_
 #define FSEGTVECTOR_H_
 
-#include <FlameSteelCore/FSCObject.h>
+#include <FlameSteelCore/Object.h>
+
+using namespace FlameSteelCore;
 
 class FSESerializable;
 
-class FSEGTVector : public FSCObject {
+class FSEGTVector : public Object {
 
 public:
 	float x;
@@ -24,7 +26,7 @@ public:
         
         void rotate(float diff);
 
-	virtual shared_ptr<FSCObject> copy();
+	virtual shared_ptr<Object> copy();
 	static shared_ptr<FSEGTVector> vectorXYZ(float x, float y, float z);
 };
 

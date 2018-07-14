@@ -4,7 +4,7 @@
 #include <string>
 using namespace std;
 
-#define FSEGTGameMapTileSize 64
+#define GameMapTileSize 64
 #define FSEGTMaxSceneObjects 1024
 
 enum

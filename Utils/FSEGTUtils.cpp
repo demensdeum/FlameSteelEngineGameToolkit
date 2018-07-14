@@ -33,14 +33,14 @@ FSEGTUtils::FSEGTUtils() {
 
 }
 
-bool FSEGTUtils::contains3D(shared_ptr<FSCObject> object) {
+bool FSEGTUtils::contains3D(shared_ptr<Object> object) {
 
 	return object->containsComponentWithIdentifier(make_shared<string>(FSEGTConstComponentsModel)) || 
 				object->containsComponentWithIdentifier(make_shared<string>(FSEGTConstComponentsSerializedModel));
 
 }
 
-int FSEGTUtils::getCurrentFrame(shared_ptr<FSCObject> object) {
+int FSEGTUtils::getCurrentFrame(shared_ptr<Object> object) {
 
     auto spriteComponentSharedPointer = object->getComponent(make_shared<string>(FSEGTConstComponentsSprite));
 
@@ -54,13 +54,13 @@ int FSEGTUtils::getCurrentFrame(shared_ptr<FSCObject> object) {
     return spriteComponent->frameIndex;
 }
 
-static bool objectContainsComponentWithIdentifier(shared_ptr<FSCObject> object, shared_ptr<string> identifier) {
+static bool objectContainsComponentWithIdentifier(shared_ptr<Object> object, shared_ptr<string> identifier) {
 
 	return object->containsComponentWithIdentifier(identifier);
 
 }
 
-int FSEGTUtils::getFramesCount(shared_ptr<FSCObject> object) {
+int FSEGTUtils::getFramesCount(shared_ptr<Object> object) {
 
     auto spriteComponentSharedPointer = object->getComponent(make_shared<string>(FSEGTConstComponentsSprite));
 
@@ -74,7 +74,7 @@ int FSEGTUtils::getFramesCount(shared_ptr<FSCObject> object) {
     return spriteComponent->framesCount;
 }
 
-shared_ptr<FSEGTVector> FSEGTUtils::getObjectRelativeScreenPosition(shared_ptr<FSCObject> object) {
+shared_ptr<FSEGTVector> FSEGTUtils::getObjectRelativeScreenPosition(shared_ptr<Object> object) {
 
 	auto relativeScreenPositionComponent = object->getComponent(make_shared<string>(FSEGTConstComponentsRelativeScreenPosition));
 
@@ -82,7 +82,7 @@ shared_ptr<FSEGTVector> FSEGTUtils::getObjectRelativeScreenPosition(shared_ptr<F
 
 }
 
-shared_ptr<FSEGTSerializedModel> FSEGTUtils::getSerializedModel(shared_ptr<FSCObject> object) {
+shared_ptr<FSEGTSerializedModel> FSEGTUtils::getSerializedModel(shared_ptr<Object> object) {
 
 	    auto serializedModelComponent = object->getComponent(make_shared<string>(FSEGTConstComponentsSerializedModel));
 
@@ -90,7 +90,7 @@ shared_ptr<FSEGTSerializedModel> FSEGTUtils::getSerializedModel(shared_ptr<FSCOb
 
 }
 
-void FSEGTUtils::updateObjectAnimationTick(shared_ptr<FSCObject> object) {
+void FSEGTUtils::updateObjectAnimationTick(shared_ptr<Object> object) {
 
     auto spriteComponentSharedPointer = object->getComponent(make_shared<string>(FSEGTConstComponentsSprite));
 
@@ -102,7 +102,7 @@ void FSEGTUtils::updateObjectAnimationTick(shared_ptr<FSCObject> object) {
     }
 }
 
-shared_ptr<string> FSEGTUtils::getModelFilePathForObject(shared_ptr<FSCObject> object) {
+shared_ptr<string> FSEGTUtils::getModelFilePathForObject(shared_ptr<Object> object) {
 
     auto modelComponentSharedPointer = object->getComponent(make_shared<string>(FSEGTConstComponentsModel));
 
@@ -169,14 +169,14 @@ shared_ptr<string> FSEGTUtils::platformPath(const char *relativePath) {
     return platformPath;
 }
 
-shared_ptr<FSEGTText> FSEGTUtils::getText(shared_ptr<FSCObject> object) {
+shared_ptr<FSEGTText> FSEGTUtils::getText(shared_ptr<Object> object) {
 
     auto textSharedPointer = object->getComponent(make_shared<string>(FSEGTConstComponentsText));
 
     return static_pointer_cast<FSEGTText>(textSharedPointer);
 }
 
-shared_ptr<FSEGTVector> FSEGTUtils::getObjectPosition(shared_ptr<FSCObject> object) {
+shared_ptr<FSEGTVector> FSEGTUtils::getObjectPosition(shared_ptr<Object> object) {
 
     auto positionComponent = object->getComponent(make_shared<string>(FSEGTConstComponentsPosition));
 
@@ -184,14 +184,14 @@ shared_ptr<FSEGTVector> FSEGTUtils::getObjectPosition(shared_ptr<FSCObject> obje
 
 }
 
-shared_ptr<FSEGTVector> FSEGTUtils::getObjectRotation(shared_ptr<FSCObject> object) {
+shared_ptr<FSEGTVector> FSEGTUtils::getObjectRotation(shared_ptr<Object> object) {
 
     auto rotationComponent = object->getComponent(make_shared<string>(FSEGTConstComponentsRotation));
 
     return static_pointer_cast<FSEGTVector>(rotationComponent);
 }
 
-shared_ptr<FSEGTVector> FSEGTUtils::getObjectScale(shared_ptr<FSCObject> object) {
+shared_ptr<FSEGTVector> FSEGTUtils::getObjectScale(shared_ptr<Object> object) {
 
     auto scaleComponent = object->getComponent(make_shared<string>(FSEGTConstComponentsScale));
 
@@ -199,11 +199,11 @@ shared_ptr<FSEGTVector> FSEGTUtils::getObjectScale(shared_ptr<FSCObject> object)
 
 }
 
-void FSEGTUtils::hideObject(shared_ptr<FSCObject> object) {
+void FSEGTUtils::hideObject(shared_ptr<Object> object) {
 
     if (!object->getComponent(make_shared<string>(FSEGTConstComponentsDeleted))) {
 
-        shared_ptr<FSCObject> deletedComponent(new FSCObject);
+        shared_ptr<Object> deletedComponent(new Object);
         deletedComponent->setInstanceIdentifier(make_shared<string>(FSEGTConstComponentsDeleted));
         deletedComponent->setClassIdentifier(make_shared<string>(FSEGTConstComponentsDeleted));
         object->addComponent(deletedComponent);
@@ -212,13 +212,13 @@ void FSEGTUtils::hideObject(shared_ptr<FSCObject> object) {
     }
 }
 
-void FSEGTUtils::unhideObject(shared_ptr<FSCObject> object) {
+void FSEGTUtils::unhideObject(shared_ptr<Object> object) {
 
     object->removeComponent(make_shared<string>(FSEGTConstComponentsDeleted));
 
 }
 
-void FSEGTUtils::movePositionVectorByRotationAndSpeed(shared_ptr<FSCObject> positionComponent, shared_ptr<FSCObject> eulerComponent, shared_ptr<FSCObject> speedComponent) {
+void FSEGTUtils::movePositionVectorByRotationAndSpeed(shared_ptr<Object> positionComponent, shared_ptr<Object> eulerComponent, shared_ptr<Object> speedComponent) {
 
     if (positionComponent && eulerComponent && speedComponent) {
 
@@ -240,11 +240,11 @@ void FSEGTUtils::movePositionVectorByRotationAndSpeed(shared_ptr<FSCObject> posi
 
 }
 
-void FSEGTUtils::moveObject(shared_ptr<FSCObject> object) {
+void FSEGTUtils::moveObject(shared_ptr<Object> object) {
 
-    shared_ptr<FSCObject> positionComponent = object->getComponent(make_shared<string>(FSEGTConstComponentsPosition));
-    shared_ptr<FSCObject> eulerComponent = object->getComponent(make_shared<string>(FSEGTConstComponentsRotation));
-    shared_ptr<FSCObject> speedComponent = object->getComponent(make_shared<string>(FSEGTConstComponentsSpeed));
+    shared_ptr<Object> positionComponent = object->getComponent(make_shared<string>(FSEGTConstComponentsPosition));
+    shared_ptr<Object> eulerComponent = object->getComponent(make_shared<string>(FSEGTConstComponentsRotation));
+    shared_ptr<Object> speedComponent = object->getComponent(make_shared<string>(FSEGTConstComponentsSpeed));
 
     if (positionComponent && eulerComponent && speedComponent) {
 
@@ -253,8 +253,8 @@ void FSEGTUtils::moveObject(shared_ptr<FSCObject> object) {
 
 }
 
-void FSEGTUtils::setSpeedForObject(int speed, shared_ptr<FSCObject> object) {
-    shared_ptr<FSCObject> speedComponent = object->getComponent(make_shared<string>(FSEGTConstComponentsSpeed));
+void FSEGTUtils::setSpeedForObject(int speed, shared_ptr<Object> object) {
+    shared_ptr<Object> speedComponent = object->getComponent(make_shared<string>(FSEGTConstComponentsSpeed));
 
     if (!speedComponent) {
         shared_ptr<FSEGTVector> newSpeedComponent(new FSEGTVector);
@@ -270,13 +270,13 @@ void FSEGTUtils::setSpeedForObject(int speed, shared_ptr<FSCObject> object) {
     speedVector->x = speed;
 }
 
-void FSEGTUtils::setAttackActionComponentForObject(shared_ptr<FSCObject> ) {
+void FSEGTUtils::setAttackActionComponentForObject(shared_ptr<Object> ) {
 
 	throw logic_error("FSEGTUtils::setAttackActionComponentForObject unimplemented");
 
 }
 
-shared_ptr<string> FSEGTUtils::getSpritePath(shared_ptr<FSCObject> object) {
+shared_ptr<string> FSEGTUtils::getSpritePath(shared_ptr<Object> object) {
 
     auto spriteComponentSharedPointer = object->getComponent(make_shared<string>(FSEGTConstComponentsSprite));
 

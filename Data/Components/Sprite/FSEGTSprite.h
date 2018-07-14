@@ -8,14 +8,15 @@
 #ifndef DATA_COMPONENTS_SPRITE_FSEGTSPRITE_H_
 #define DATA_COMPONENTS_SPRITE_FSEGTSPRITE_H_
 
-#include <FlameSteelCore/FSCObject.h>
+#include <FlameSteelCore/Object.h>
 #include <string>
 
 #include <memory>
 
 using namespace std;
+using namespace FlameSteelCore;
 
-class FSEGTSprite: public FSCObject {
+class FSEGTSprite: public Object {
 public:
 	FSEGTSprite(shared_ptr<string> spriteFilePath);
 

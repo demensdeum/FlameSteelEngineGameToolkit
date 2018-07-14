@@ -14,11 +14,13 @@
 #ifndef FSEGTMODEL_H
 #define FSEGTMODEL_H
 
-#include <FlameSteelCore/FSCObject.h>
+#include <FlameSteelCore/Object.h>
 
 #include <string>
 
-class FSEGTModelReference: public FSCObject {
+using namespace FlameSteelCore;
+
+class FSEGTModelReference: public Object {
 public:
     FSEGTModelReference(shared_ptr<string> modelFilePath);
     FSEGTModelReference(const FSEGTModelReference& orig);

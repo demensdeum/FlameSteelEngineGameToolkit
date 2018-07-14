@@ -10,13 +10,13 @@
 
 #include <FlameSteelEngineGameToolkit/Data/FSEGTGameData.h>
 #include <FlameSteelEngineGameToolkit/IO/IOSystems/FSEGTIOSystem.h>
-#include <FlameSteelCore/FSCObject.h>
+#include <FlameSteelCore/Object.h>
 
 #include <memory>
 
 using namespace std;
 
-class FSEGTRenderer : public FSCObject, public FSEGTObjectContextDelegate {
+class FSEGTRenderer : public Object, public FSEGTObjectContextDelegate {
 public:
     FSEGTRenderer();
 
@@ -34,7 +34,7 @@ public:
 
     virtual ~FSEGTRenderer();
 
-    virtual void objectsContextObjectAdded(shared_ptr<FSEGTObjectsContext> context, shared_ptr<FSCObject> object);
+    virtual void objectsContextObjectAdded(shared_ptr<FSEGTObjectsContext> context, shared_ptr<Object> object);
 
     virtual void addRenderID(int id);
     

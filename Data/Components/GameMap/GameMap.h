@@ -5,7 +5,7 @@
  */
 
 /* 
- * File:   FSEGTGameMap.h
+ * File:   GameMap.h
  * Author: demensdeum
  *
  * Created on April 25, 2017, 9:18 AM
@@ -17,39 +17,43 @@
 #include <memory>
 #include <vector>
 
-#include <FlameSteelCore/FSCObject.h>
-
-
-#include <FlameSteelCore/FSCObject.h>
+#include <FlameSteelCore/Object.h>
 
 using namespace std;
+using namespace FlameSteelCore;
 
-const int FSEGTGameMapWidth = 64;
-const int FSEGTGameMapHeight = 64;
+namespace FlameSteelEngine {
+namespace GameToolkit {
 
-class FSEGTGameMap: public FSCObject {
+const int GameMapWidth = 64;
+const int GameMapHeight = 64;
+
+class GameMap: public Object {
 public:
-    FSEGTGameMap();
-    FSEGTGameMap(const FSEGTGameMap& orig);
-    virtual ~FSEGTGameMap();
+    GameMap();
+    GameMap(const GameMap& orig);
+    virtual ~GameMap();
     
     int width;
     int height;
     
-    shared_ptr<FSCObject> getTileAtXY(int tileX, int tileY);
+    shared_ptr<Object> getTileAtXY(int tileX, int tileY);
     void setTileAtXY(int tileIndex, int tileX, int tileY);
     
-    void addTile(shared_ptr<FSCObject> tile);
+    void addTile(shared_ptr<Object> tile);
     
     int getTileIndexAtXY(int tileX, int tileY);
     
 private:
 
-    int map[FSEGTGameMapWidth][FSEGTGameMapHeight];
+    int map[GameMapWidth][GameMapHeight];
     
-    vector<shared_ptr<FSCObject> > tiles;
+    vector<shared_ptr<Object> > tiles;
     
 };
+
+}
+}
 
 #endif /* FSEGTGAMEMAP_H */
 

@@ -14,14 +14,15 @@
 #ifndef FSEGTTEXT_H
 #define FSEGTTEXT_H
 
-#include <FlameSteelCore/FSCObject.h>
+#include <FlameSteelCore/Object.h>
 
 #include <string>
 #include <memory>
 
 using namespace std;
+using namespace FlameSteelCore;
 
-class FSEGTText : public FSCObject {
+class FSEGTText : public Object {
 public:
     FSEGTText(shared_ptr<string> text);
     FSEGTText(const FSEGTText& orig);

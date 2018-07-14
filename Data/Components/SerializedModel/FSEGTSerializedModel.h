@@ -1,9 +1,11 @@
 #ifndef FSEGTSERIALIZEDMODELDEFINED
 #define FSEGTSERIALIZEDMODELDEFINED
 
-#include <FlameSteelCore/FSCObject.h>
+#include <FlameSteelCore/Object.h>
 
-class FSEGTSerializedModel: public FSCObject {
+using namespace FlameSteelCore;
+
+class FSEGTSerializedModel: public Object {
 
 public:
 

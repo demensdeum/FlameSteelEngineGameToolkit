@@ -16,25 +16,26 @@
 
 #include <memory>
 
-#include <FlameSteelCore/FSCObjects.h>
+#include <FlameSteelCore/Objects.h>
 #include <FlameSteelEngineGameToolkit/Controllers/FSEGTObjectContextDelegate.h>
 
 using namespace std;
+using namespace FlameSteelCore;
 
 class FSEGTObjectsContext : public std::enable_shared_from_this<FSEGTObjectsContext> {
 public:
     FSEGTObjectsContext();
     virtual ~FSEGTObjectsContext();
     
-	shared_ptr<FSCObject> objectWithInstanceIdentifier(shared_ptr<string> instanceIdentifier);
+	shared_ptr<Object> objectWithInstanceIdentifier(shared_ptr<string> instanceIdentifier);
     
-	void setObjects(shared_ptr<FSCObjects> objects);
+	void setObjects(shared_ptr<Objects> objects);
 
     void removeAllObjects();
     
-    void addObject(shared_ptr<FSCObject> object);
-    void updateObject(shared_ptr<FSCObject> object);
-    void removeObject(shared_ptr<FSCObject> object);
+    void addObject(shared_ptr<Object> object);
+    void updateObject(shared_ptr<Object> object);
+    void removeObject(shared_ptr<Object> object);
     
     void subscribe(shared_ptr<FSEGTObjectContextDelegate> delegate);
     void unsubscribe(shared_ptr<FSEGTObjectContextDelegate> delegate);
@@ -42,7 +43,7 @@ public:
 private:
 
     vector<shared_ptr<FSEGTObjectContextDelegate> > subscribers;
-    shared_ptr<FSCObjects> objects;
+    shared_ptr<Objects> objects;
     
 };
 

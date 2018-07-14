@@ -17,11 +17,11 @@ using namespace std;
 
 FSEGTGameData::FSEGTGameData() {
     
-	gameObjects = make_shared<FSCObjects>();
+	gameObjects = make_shared<Objects>();
         
 }
 
-shared_ptr<FSCObjects> FSEGTGameData::getGameObjects() {
+shared_ptr<Objects> FSEGTGameData::getGameObjects() {
 	return this->gameObjects;
 }
 

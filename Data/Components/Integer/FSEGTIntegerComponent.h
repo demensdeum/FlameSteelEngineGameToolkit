@@ -8,9 +8,11 @@
 #ifndef DATA_COMPONENTS_INTEGER_FSEGTINTEGERCOMPONENT_H_
 #define DATA_COMPONENTS_INTEGER_FSEGTINTEGERCOMPONENT_H_
 
-#include <FlameSteelCore/FSCObject.h>
+#include <FlameSteelCore/Object.h>
 
-class FSEGTIntegerComponent: public FSCObject {
+using namespace FlameSteelCore;
+
+class FSEGTIntegerComponent: public Object {
 public:
 	FSEGTIntegerComponent();
 

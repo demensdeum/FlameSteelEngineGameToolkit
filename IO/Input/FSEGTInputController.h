@@ -8,10 +8,13 @@
 #ifndef FSEGTINPUTCONTROLLER_H_
 #define FSEGTINPUTCONTROLLER_H_
 
-#include <FlameSteelCore/FSCObject.h>
+#include <FlameSteelCore/Object.h>
+
+using namespace FlameSteelCore;
+
 class FSEGTIOSystem;
 
-class FSEGTInputController: public FSCObject {
+class FSEGTInputController: public Object {
 public:
 	FSEGTInputController();
 

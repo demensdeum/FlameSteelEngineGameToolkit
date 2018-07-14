@@ -8,9 +8,9 @@
 #ifndef FSEGTIOSYSTEM_H_
 #define FSEGTIOSYSTEM_H_
 
-#include <FlameSteelCore/FSCObject.h>
+#include <FlameSteelCore/Object.h>
 
-#include <FlameSteelCore/FSCResourcesManager.h>
+#include <FlameSteelCore/ResourcesManager.h>
 #include <FlameSteelEngineGameToolkit/IO/IOSystems/FSEGTIOSystemParams.h>
 #include <FlameSteelEngineGameToolkit/IO/Input/FSEGTInputController.h>
 
@@ -20,7 +20,7 @@ class FSEGTRenderer;
 class FSEGTAudioPlayer;
 class FSEGTInputController;
 
-class FSEGTIOSystem: public FSCObject, public FSEGTObjectContextDelegate, public std::enable_shared_from_this<FSEGTIOSystem> {
+class FSEGTIOSystem: public Object, public FSEGTObjectContextDelegate, public std::enable_shared_from_this<FSEGTIOSystem> {
 public:
 	FSEGTIOSystem();
 
@@ -30,7 +30,7 @@ public:
 
 	virtual ~FSEGTIOSystem();
 
-        shared_ptr<FSCResourcesManager> resourcesManager;
+        shared_ptr<ResourcesManager> resourcesManager;
 
 	shared_ptr<FSEGTRenderer> renderer;
 	shared_ptr<FSEGTInputController> inputController;

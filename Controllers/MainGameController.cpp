@@ -1,11 +1,11 @@
 /*
- * FSEGTGameController.cpp
+ * MainGameController.cpp
  *
  *  Created on: Jul 27, 2016
  *      Author: demensdeum
  */
 
-#include "FSEGTGameController.h"
+#include "MainGameController.h"
 
 #define FSEGT_DEBUG_PRINT_ENABLED 0
 #define FSEGT_DEBUG_SHOW_FPS 0
@@ -19,20 +19,21 @@
 #endif
 
 using namespace std;
+using namespace FlameSteelEngine::GameToolkit;
 
-static const int FSEGTGameControllerFpsLock = 60;
-static const float FSEGTGameControllerStepTimePerSecond = 1.0 / FSEGTGameControllerFpsLock; // one second / fps lock
+static const int MainGameControllerFpsLock = 60;
+static const float MainGameControllerStepTimePerSecond = 1.0 / MainGameControllerFpsLock; // one second / fps lock
 
-FSEGTGameController::FSEGTGameController() {
+MainGameController::MainGameController() {
 
 	srand (time(nullptr));
 
-    resourcesManager = make_shared<FSCResourcesManager>();
-    resourcesLoader = make_shared<FSCResourcesLoader>();
+    resourcesManager = make_shared<ResourcesManager>();
+    resourcesLoader = make_shared<ResourcesLoader>();
 
     isRunning = false;
-    currentController = shared_ptr<FSEGTController>();
-    gameControllerMessage = shared_ptr<FSCMessage>();
+    currentController = shared_ptr<GameController>();
+    gameControllerMessage = shared_ptr<Message>();
     gameData = shared_ptr<FSEGTGameData>();
 
     printedSelf = false;
@@ -51,7 +52,7 @@ void GLOBAL_fsegt_emscripten_gameLoop() {
 }
 #endif
 
-void FSEGTGameController::startGameFromState(int startState) {
+void MainGameController::startGameFromState(int startState) {
 
     gameData = make_shared<FSEGTGameData>();
 
@@ -74,24 +75,24 @@ void FSEGTGameController::startGameFromState(int startState) {
 
 }
 
-void FSEGTGameController::setIOSystem(shared_ptr<FSEGTIOSystem> ioSystem) {
+void MainGameController::setIOSystem(shared_ptr<FSEGTIOSystem> ioSystem) {
 
     ioSystem->resourcesManager = this->resourcesManager;
 
     this->ioSystem = ioSystem;
 }
 
-void FSEGTGameController::setControllerForState(shared_ptr<FSEGTController> controller, int state) {
+void MainGameController::setControllerForState(shared_ptr<GameController> controller, int state) {
 
     stateToControllerMap[state] = controller;
 
 }
 
-void FSEGTGameController::switchToState(int state) {
+void MainGameController::switchToState(int state) {
 
     this->state = state;
     
-    shared_ptr<FSEGTController> controller = stateToControllerMap[state];
+    shared_ptr<GameController> controller = stateToControllerMap[state];
 
     if (controller.get() == nullptr) {
 
@@ -105,7 +106,7 @@ void FSEGTGameController::switchToState(int state) {
     setCurrentController(controller);
 }
 
-void FSEGTGameController::gameLoop() {
+void MainGameController::gameLoop() {
 
 #ifndef __EMSCRIPTEN__
     while (true) {
@@ -126,7 +127,7 @@ void FSEGTGameController::gameLoop() {
             
         } else {
 
-            //cout << "FSEGTGameController: no current controller to make a step. Quit." << endl;
+            //cout << "MainGameController: no current controller to make a step. Quit." << endl;
             
             if (printedSelf == false) {
             
@@ -153,7 +154,7 @@ void FSEGTGameController::gameLoop() {
         printf("It took me %d clicks (%f seconds).\n", timeSpentClicks, timeSpentSeconds);
 #endif
 
-        float sleepForMsFloat = FSEGTGameControllerStepTimePerSecond - timeSpentSeconds;
+        float sleepForMsFloat = MainGameControllerStepTimePerSecond - timeSpentSeconds;
 
         int sleepForMs = sleepForMsFloat * 1000;
 
@@ -170,13 +171,13 @@ void FSEGTGameController::gameLoop() {
 #endif
 }
 
-void FSEGTGameController::step() {
+void MainGameController::step() {
     
     this->currentController->step();
     
 }
 
-void FSEGTGameController::pollGameControllerMessage() {
+void MainGameController::pollGameControllerMessage() {
     //TODO handle message
     if (this->gameControllerMessage) {
 
@@ -184,22 +185,22 @@ void FSEGTGameController::pollGameControllerMessage() {
 
     }
 
-    this->gameControllerMessage = shared_ptr<FSCMessage>();
+    this->gameControllerMessage = shared_ptr<Message>();
 }
 
-void FSEGTGameController::setIsRunning(bool isRunning) {
+void MainGameController::setIsRunning(bool isRunning) {
     this->isRunning = isRunning;
 }
 
-void FSEGTGameController::handleGameControllerMessage(shared_ptr<FSCMessage> ) {
+void MainGameController::handleGameControllerMessage(shared_ptr<Message> ) {
 
 }
 
-void FSEGTGameController::setGameControllerMessage(shared_ptr<FSCMessage> message) {
+void MainGameController::setGameControllerMessage(shared_ptr<Message> message) {
     this->gameControllerMessage = message;
 }
 
-void FSEGTGameController::setCurrentController(shared_ptr<FSEGTController> newCurrentController) {
+void MainGameController::setCurrentController(shared_ptr<GameController> newCurrentController) {
     
     if (currentController.get() != newCurrentController.get()) {
         
@@ -218,6 +219,6 @@ void FSEGTGameController::setCurrentController(shared_ptr<FSEGTController> newCu
     }
 }
 
-FSEGTGameController::~FSEGTGameController() {
+MainGameController::~MainGameController() {
     stateToControllerMap.clear();
 }

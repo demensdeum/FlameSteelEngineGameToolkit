@@ -8,7 +8,7 @@
 #ifndef DATA_COMPONENTS_FSEGTCOMPONENTSGENERATOR_H_
 #define DATA_COMPONENTS_FSEGTCOMPONENTSGENERATOR_H_
 
-#include <FlameSteelCore/FSCObject.h>
+#include <FlameSteelCore/Object.h>
 #include <memory>
 #include <string>
 
@@ -21,12 +21,12 @@ class FSEGTSerializedModel;
 
 using namespace std;
 
-class FSEGTFactory: public FSCObject {
+class FSEGTFactory: public Object {
 public:
 
         // object
         
-        static shared_ptr <FSCObject> makeOnSceneObject(
+        static shared_ptr <Object> makeOnSceneObject(
                                         shared_ptr<string> classIdentifier,
                                         shared_ptr<string> instanceIdentifier,
                                         shared_ptr<string> spriteFilePath,
@@ -44,7 +44,7 @@ public:
                                         int speed                 
                                       );
 
-	static shared_ptr <FSCObject> makeOnScreenText(
+	static shared_ptr <Object> makeOnScreenText(
 						  shared_ptr<string> text, 
 						  float x, float y);
 

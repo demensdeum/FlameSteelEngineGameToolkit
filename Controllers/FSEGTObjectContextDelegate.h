@@ -18,7 +18,12 @@
 
 using namespace std;
 
-class FSCObject;
+namespace FlameSteelCore {
+class Object;
+}
+
+using namespace FlameSteelCore;
+
 class FSEGTObjectsContext;
 
 class FSEGTObjectContextDelegate {
@@ -27,8 +32,8 @@ public:
     FSEGTObjectContextDelegate(const FSEGTObjectContextDelegate& orig);
     virtual ~FSEGTObjectContextDelegate();
     
-    virtual void objectsContextObjectAdded(shared_ptr<FSEGTObjectsContext> context, shared_ptr<FSCObject> object);
-    virtual void objectsContextObjectUpdate(shared_ptr<FSEGTObjectsContext> context, shared_ptr<FSCObject> object);
+    virtual void objectsContextObjectAdded(shared_ptr<FSEGTObjectsContext> context, shared_ptr<Object> object);
+    virtual void objectsContextObjectUpdate(shared_ptr<FSEGTObjectsContext> context, shared_ptr<Object> object);
     virtual void objectsContextAllObjectsRemoved(shared_ptr<FSEGTObjectsContext> context);
     
 private:

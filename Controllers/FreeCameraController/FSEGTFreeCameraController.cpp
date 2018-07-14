@@ -4,7 +4,7 @@
 #include <FlameSteelEngineGameToolkit/Utils/FSEGTUtils.h>
 #include "FSEGTFreeCameraControllerDelegate.h"
 
-FSEGTFreeCameraController::FSEGTFreeCameraController(shared_ptr<FSEGTInputController> inputController, shared_ptr<FSCObject> camera) {
+FSEGTFreeCameraController::FSEGTFreeCameraController(shared_ptr<FSEGTInputController> inputController, shared_ptr<Object> camera) {
 
 	this->inputController = inputController;
 	this->camera = camera;

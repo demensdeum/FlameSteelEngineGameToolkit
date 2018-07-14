@@ -33,7 +33,7 @@ void FSEGTRenderer::updateScreen() {
 
 }
 
-void FSEGTRenderer::objectsContextObjectAdded(shared_ptr<FSEGTObjectsContext> , shared_ptr<FSCObject> ) {
+void FSEGTRenderer::objectsContextObjectAdded(shared_ptr<FSEGTObjectsContext> , shared_ptr<Object> ) {
 
 }
 
