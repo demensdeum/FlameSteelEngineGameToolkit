@@ -12,10 +12,13 @@
 #include <memory>
 #include <string>
 
+#include <FlameSteelEngineGameToolkit/Data/Components/Float/FloatComponent.h>
 #include <FlameSteelEngineGameToolkit/Data/Components/Vector/FSEGTVector.h>
 #include <FlameSteelEngineGameToolkit/Data/Components/Sprite/FSEGTSprite.h>
 #include <FlameSteelEngineGameToolkit/Data/Components/ModelReference/FSEGTModelReference.h>
 #include <FlameSteelEngineGameToolkit/Data/Components/Text/FSEGTText.h>
+
+using namespace FlameSteelEngine::GameToolkit;
 
 class FSEGTSerializedModel;
 
@@ -57,6 +60,7 @@ public:
       static shared_ptr <FSEGTModelReference>  makeModelReferenceComponent(shared_ptr<string> modelFilePath);
       static shared_ptr <FSEGTVector> makeScaleComponent(float width, float height, float depth);
 	static shared_ptr<FSEGTSerializedModel> makeSerializedModelComponent(shared_ptr<string> serializedModel);
+	static shared_ptr<FloatComponent> makeBrightnessComponent(float brightness);
 };
 
 #endif /* DATA_COMPONENTS_FSEGTCOMPONENTSGENERATOR_H_ */

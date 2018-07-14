@@ -17,7 +17,6 @@
 #endif
 
 #include <FlameSteelEngineGameToolkit/Data/Components/Text/FSEGTText.h>
-
 #include <FlameSteelEngineGameToolkit/Utils/FSEGTUtils.h>
 #include <FlameSteelEngineGameToolkit/Const/FSEGTConst.h>
 #include <FlameSteelEngineGameToolkit/Data/Components/FSEGTFactory.h>
@@ -72,6 +71,14 @@ int FSEGTUtils::getFramesCount(shared_ptr<Object> object) {
     }
 
     return spriteComponent->framesCount;
+}
+
+shared_ptr<FloatComponent> FSEGTUtils::getObjectBrightness(shared_ptr<Object> object) {
+
+	auto brightnessComponent = object->getComponent(make_shared<string>(FSEGTConstComponentsBrightness));
+
+	return  static_pointer_cast<FloatComponent>(brightnessComponent);
+
 }
 
 shared_ptr<FSEGTVector> FSEGTUtils::getObjectRelativeScreenPosition(shared_ptr<Object> object) {

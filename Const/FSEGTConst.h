@@ -22,6 +22,7 @@ static const string FSEGTConstComponentsPosition = "Position";
 static const string FSEGTConstComponentsRotation = "Rotation";
 static const string FSEGTConstComponentsEulerRotation = "Euler Rotation";
 static const string FSEGTConstComponentsAI = "AI";
+static const string FSEGTConstComponentsBrightness = "Brightness";
 static const string FSEGTConstComponentsSprite = "Sprite";
 static const string FSEGTConstComponentsSpeed = "Speed";
 static const string FSEGTConstComponentsDeleted = "Deleted";

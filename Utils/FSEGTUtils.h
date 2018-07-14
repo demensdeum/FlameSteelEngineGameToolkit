@@ -8,12 +8,15 @@
 #ifndef UTILS_FSEGTUTILS_H_
 #define UTILS_FSEGTUTILS_H_
 
+#include <FlameSteelEngineGameToolkit/Data/Components/Float/FloatComponent.h>
 #include <FlameSteelCore/Object.h>
 #include <FlameSteelEngineGameToolkit/Data/Components/Vector/FSEGTVector.h>
 #include <string.h>
 
 class FSEGTText;
 class FSEGTSerializedModel;
+
+using namespace FlameSteelEngine::GameToolkit;
 
 class FSEGTUtils: public Object {
 public:
@@ -30,6 +33,7 @@ public:
         static shared_ptr<FSEGTVector> getObjectScale(shared_ptr<Object> object);
         static shared_ptr<FSEGTVector> getObjectRotation(shared_ptr<Object> object);
 	static shared_ptr<FSEGTVector> getObjectRelativeScreenPosition(shared_ptr<Object> object);
+	static shared_ptr<FloatComponent> getObjectBrightness(shared_ptr<Object> object);
         
 	static void hideObject(shared_ptr<Object> object);
 	static void unhideObject(shared_ptr<Object> object);

@@ -91,8 +91,20 @@ shared_ptr <Object> FSEGTFactory::makeOnSceneObject(
     onSceneObject->addComponent(FSEGTFactory::makeScaleComponent(width, height, depth));
     onSceneObject->addComponent(FSEGTFactory::makeSpeedComponent(speed));
     onSceneObject->addComponent(FSEGTFactory::makeRotationComponent(rotationX, rotationY, rotationZ));
+	onSceneObject->addComponent(FSEGTFactory::makeBrightnessComponent(1.0));
 
     return onSceneObject;
+}
+
+shared_ptr<FloatComponent> FSEGTFactory::makeBrightnessComponent(float brightness) {
+
+	auto brightnessComponent = make_shared<FloatComponent>();
+	brightnessComponent->setClassIdentifier(make_shared<string>(FSEGTConstComponentsBrightness));
+	brightnessComponent->setInstanceIdentifier(make_shared<string>(FSEGTConstComponentsBrightness));
+
+	brightnessComponent->floatNumber = brightness;
+
+	return brightnessComponent;
 }
 
 shared_ptr<FSEGTSerializedModel> FSEGTFactory::makeSerializedModelComponent(shared_ptr<string> serializedModel) {
