@@ -52,14 +52,16 @@ void GameController::receivedActionFromSender(int, Object *) {
 
 }
 
-void GameController::controllerDidFinish(GameController *) {
-	printf("unhandled empty controller did finish notify\n");
+void GameController::controllerDidFinish(Controller *controller) {
+
+	throw logic_error("unhandled empty controller did finish notify");
+
 }
 
 void GameController::notifyListenerAboutControllerDidFinish(GameController *) {
 	if (listener)
 	{
-		this->listener->controllerDidFinish(this);
+		listener->controllerDidFinish(this);
 	}
 }
 

@@ -49,7 +49,7 @@ public:
 
 	// listener
 	GameController *listener;
-	virtual void controllerDidFinish(GameController *controller);
+	virtual void controllerDidFinish(Controller *controller);
 
 	virtual void receivedActionFromSender(int action, Object *sender);
 
