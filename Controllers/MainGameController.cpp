@@ -10,8 +10,6 @@
 #define FSEGT_DEBUG_PRINT_ENABLED 0
 #define FSEGT_DEBUG_SHOW_FPS 0
 
-#include <chrono>
-#include <thread>
 #include <iostream>
 
 #ifdef __EMSCRIPTEN__
@@ -161,10 +159,6 @@ void MainGameController::gameLoop() {
 #if FSEGT_DEBUG_PRINT_ENABLED
         printf("sleepForMs: %d\n", sleepForMs);
 #endif        
-
-        std::chrono::milliseconds dura(sleepForMs);
-
-        std::this_thread::sleep_for(dura);
 
 #ifndef __EMSCRIPTEN__                
     }

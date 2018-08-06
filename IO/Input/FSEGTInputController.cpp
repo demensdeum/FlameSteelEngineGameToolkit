@@ -20,7 +20,6 @@ FSEGTInputController::FSEGTInputController() {
 
 	this->exitKeyPressed = false;
 	this->shootKeyPressed = false;
-
 }
 
 bool FSEGTInputController::isRotateLeftKeyPressed() {
@@ -80,14 +79,6 @@ bool FSEGTInputController::isShootKeyPressed() {
 bool FSEGTInputController::isUseKeyPressed() {
 	return this->useKeyPressed;
 }
- 
-void FSEGTInputController::pollPointerPosition() {
-
-}
-
-void FSEGTInputController::pollPointerDiff() {
-
-}
 
 int FSEGTInputController::getPointerXdiff() {
 
@@ -97,20 +88,6 @@ int FSEGTInputController::getPointerXdiff() {
 int FSEGTInputController::getPointerYdiff() {
 
 	return pointerYdiff;
-}
-
-int FSEGTInputController::getPointerX() {
-
-	return 0;
-}
-
-int FSEGTInputController::getPointerY() {
-
-	return 0;
-}
-
-void FSEGTInputController::clearPointer() {
-
 }
 
 FSEGTInputController::~FSEGTInputController() {

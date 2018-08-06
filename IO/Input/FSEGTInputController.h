@@ -32,17 +32,9 @@ public:
 
 	virtual void pollKey();
 	virtual void clearKeys();
-
-	virtual void pollPointerDiff();
-	virtual void pollPointerPosition();
         
 	virtual int getPointerXdiff();
 	virtual int getPointerYdiff();
-        
-	virtual int getPointerX();
-	virtual int getPointerY();
-
-	virtual void clearPointer();
 
 	shared_ptr<FSEGTIOSystem> ioSystem;
 
