@@ -121,8 +121,9 @@ void MainGameController::gameLoop() {
 
         if (this->currentController.get() != nullptr) {
             
+	
             this->step();
-            
+       
         } else {
 
             //cout << "MainGameController: no current controller to make a step. Quit." << endl;
