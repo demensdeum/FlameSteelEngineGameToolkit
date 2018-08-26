@@ -32,6 +32,11 @@ FSEGTUtils::FSEGTUtils() {
 
 }
 
+bool FSEGTUtils::isOnScreenObject(shared_ptr<Object> object) {
+	return object->containsComponentWithIdentifier(make_shared<string>(FSEGTConstComponentsFlag2D)) || 
+				object->containsComponentWithIdentifier(make_shared<string>(FSEGTConstComponentsFlag2D));
+}
+
 bool FSEGTUtils::contains3D(shared_ptr<Object> object) {
 
 	return object->containsComponentWithIdentifier(make_shared<string>(FSEGTConstComponentsModel)) || 

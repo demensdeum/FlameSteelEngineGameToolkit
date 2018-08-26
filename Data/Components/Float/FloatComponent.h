@@ -10,7 +10,7 @@ namespace GameToolkit {
 class FloatComponent: public Object {
 
 public:
-	float floatNumber;
+	float floatNumber = 0.f;
 
 };
 };

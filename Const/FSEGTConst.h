@@ -17,6 +17,7 @@ enum
 #define FSEGTConstTextureSize 64
 #define FSEGT_MAX_TILES_COUNT 64
 
+static const string FSEGTConstComponentsFlag2D = "FSEGTConstComponentsFlag2D";
 static const string FSEGTConstComponentsScale = "Scale";
 static const string FSEGTConstComponentsPosition = "Position";
 static const string FSEGTConstComponentsRotation = "Rotation";

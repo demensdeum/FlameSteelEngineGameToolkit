@@ -20,6 +20,11 @@ shared_ptr <FSEGTModelReference> FSEGTFactory::makeModelReferenceComponent(share
     return component;
 }
 
+shared_ptr<BooleanComponent> FSEGTFactory::makeBooleanComponent() {
+	auto component = make_shared<BooleanComponent>();
+	return component;
+}
+
 shared_ptr <Object> FSEGTFactory::makeOnScreenText(
 						  shared_ptr<string> text, 
 						  float x, float y)

@@ -12,6 +12,7 @@
 #include <memory>
 #include <string>
 
+#include <FlameSteelEngineGameToolkit/Data/Components/Boolean/BooleanComponent.h>
 #include <FlameSteelEngineGameToolkit/Data/Components/Float/FloatComponent.h>
 #include <FlameSteelEngineGameToolkit/Data/Components/Vector/FSEGTVector.h>
 #include <FlameSteelEngineGameToolkit/Data/Components/Sprite/FSEGTSprite.h>
@@ -53,6 +54,7 @@ public:
 
         // components
         
+	static shared_ptr<BooleanComponent> makeBooleanComponent();
 	static shared_ptr <FSEGTVector> makePositionComponent(float x = 0, float y = 0, float z = 0);
 	static shared_ptr <FSEGTVector> makeRotationComponent(float rotationX, float rotationY, float rotationZ);
       static shared_ptr <FSEGTVector> makeSpeedComponent(int speed);
