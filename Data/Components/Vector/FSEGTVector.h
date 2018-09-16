@@ -26,7 +26,8 @@ public:
         
         void rotate(float diff);
 
-	virtual shared_ptr<Object> copy();
+	shared_ptr<FSEGTVector> copy();
+	void populate(shared_ptr<FSEGTVector> vector);
 	static shared_ptr<FSEGTVector> vectorXYZ(float x, float y, float z);
 };
 

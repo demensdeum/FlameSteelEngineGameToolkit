@@ -32,15 +32,22 @@ shared_ptr<FSEGTVector> FSEGTVector::vectorXYZ(float x, float y, float z) {
 	return vector;
 }
 
-shared_ptr<Object> FSEGTVector::copy() {
-	shared_ptr<FSEGTVector> copiedVector(new FSEGTVector);
+shared_ptr<FSEGTVector> FSEGTVector::copy() {
 
-	copiedVector->x = this->x;
-	copiedVector->y = this->y;
-	copiedVector->z = this->z;
+	auto copied = make_shared<FSEGTVector>();
 
-	copiedVector->setInstanceIdentifier(this->getInstanceIdentifier());
-	copiedVector->setClassIdentifier(this->getClassIdentifier());
+	copied->x = this->x;
+	copied->y = this->y;
+	copied->z = this->z;
 
-	return copiedVector;
+	copied->setInstanceIdentifier(this->getInstanceIdentifier());
+	copied->setClassIdentifier(this->getClassIdentifier());
+
+	return copied;
+}
+
+void FSEGTVector::populate(shared_ptr<FSEGTVector> vector) {
+	x = vector->x;
+	y = vector->y;
+	z = vector->z;
 }
