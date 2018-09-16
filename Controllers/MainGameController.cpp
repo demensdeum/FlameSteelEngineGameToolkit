@@ -120,8 +120,7 @@ void MainGameController::gameLoop() {
 #endif
 
         if (this->currentController.get() != nullptr) {
-            
-	
+
             this->step();
        
         } else {
