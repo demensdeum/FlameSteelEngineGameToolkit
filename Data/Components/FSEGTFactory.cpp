@@ -180,3 +180,10 @@ shared_ptr <FSEGTSprite> FSEGTFactory::makeSpriteComponent(shared_ptr<string> sp
 
     return sprite;
 }
+
+shared_ptr<SurfaceMaterial> FSEGTFactory::makeSurfaceMaterialComponent(int width, int height) {
+
+	auto surfaceMaterial = make_shared<SurfaceMaterial>(width, height);
+	return surfaceMaterial;
+
+}

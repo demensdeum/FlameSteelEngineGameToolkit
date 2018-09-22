@@ -196,6 +196,13 @@ shared_ptr<FSEGTVector> FSEGTUtils::getObjectPosition(shared_ptr<Object> object)
 
 }
 
+shared_ptr<SurfaceMaterial> FSEGTUtils::getObjectSurfaceMaterial(shared_ptr<Object> object) {
+
+	auto surfaceMaterial = object->getComponent(make_shared<string>("Surface Material"));
+
+	return static_pointer_cast<SurfaceMaterial>(surfaceMaterial);
+}
+
 shared_ptr<FSEGTVector> FSEGTUtils::getObjectRotation(shared_ptr<Object> object) {
 
     auto rotationComponent = object->getComponent(make_shared<string>(FSEGTConstComponentsRotation));

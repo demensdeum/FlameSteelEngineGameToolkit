@@ -18,6 +18,7 @@
 #include <FlameSteelEngineGameToolkit/Data/Components/Sprite/FSEGTSprite.h>
 #include <FlameSteelEngineGameToolkit/Data/Components/ModelReference/FSEGTModelReference.h>
 #include <FlameSteelEngineGameToolkit/Data/Components/Text/FSEGTText.h>
+#include <FlameSteelEngineGameToolkit/Data/Components/SurfaceMaterial/SurfaceMaterial.h>
 
 using namespace FlameSteelEngine::GameToolkit;
 
@@ -63,6 +64,7 @@ public:
       static shared_ptr <FSEGTVector> makeScaleComponent(float width, float height, float depth);
 	static shared_ptr<FSEGTSerializedModel> makeSerializedModelComponent(shared_ptr<string> serializedModel);
 	static shared_ptr<FloatComponent> makeBrightnessComponent(float brightness);
+	static shared_ptr<SurfaceMaterial> makeSurfaceMaterialComponent(int width, int height);
 };
 
 #endif /* DATA_COMPONENTS_FSEGTCOMPONENTSGENERATOR_H_ */

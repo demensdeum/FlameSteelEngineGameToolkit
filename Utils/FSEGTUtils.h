@@ -11,6 +11,7 @@
 #include <FlameSteelEngineGameToolkit/Data/Components/Float/FloatComponent.h>
 #include <FlameSteelCore/Object.h>
 #include <FlameSteelEngineGameToolkit/Data/Components/Vector/FSEGTVector.h>
+#include <FlameSteelEngineGameToolkit/Data/Components/SurfaceMaterial/SurfaceMaterial.h>
 #include <string.h>
 
 class FSEGTText;
@@ -34,6 +35,7 @@ public:
         static shared_ptr<FSEGTVector> getObjectRotation(shared_ptr<Object> object);
 	static shared_ptr<FSEGTVector> getObjectRelativeScreenPosition(shared_ptr<Object> object);
 	static shared_ptr<FloatComponent> getObjectBrightness(shared_ptr<Object> object);
+	static shared_ptr<SurfaceMaterial> getObjectSurfaceMaterial(shared_ptr<Object> object);
         
 	static void hideObject(shared_ptr<Object> object);
 	static void unhideObject(shared_ptr<Object> object);
