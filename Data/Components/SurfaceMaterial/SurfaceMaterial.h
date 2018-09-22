@@ -3,6 +3,7 @@
 
 #include <FlameSteelCore/Object.h>
 #include <SDL2/SDL.h>
+#include <FSGL/Data/Material/FSGLMaterial.h>
 
 using namespace FlameSteelCore;
 
@@ -12,10 +13,10 @@ namespace GameToolkit {
 class SurfaceMaterial: public Object {
 
 public:
-	SDL_Surface *surface = nullptr;
+	shared_ptr<FSGLMaterial> material;
 
+	SurfaceMaterial(shared_ptr<FSGLMaterial> material);
 	SurfaceMaterial(int width, int height);
-	virtual ~SurfaceMaterial();
 
 };
 
