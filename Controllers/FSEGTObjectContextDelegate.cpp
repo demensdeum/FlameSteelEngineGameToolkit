@@ -31,5 +31,9 @@ void FSEGTObjectContextDelegate::objectsContextAllObjectsRemoved(shared_ptr<FSEG
     
 }
 
+void FSEGTObjectContextDelegate::objectsContextObjectRemoved(shared_ptr<FSEGTObjectsContext>, shared_ptr<Object>) {
+
+}
+
 FSEGTObjectContextDelegate::~FSEGTObjectContextDelegate() {
 }

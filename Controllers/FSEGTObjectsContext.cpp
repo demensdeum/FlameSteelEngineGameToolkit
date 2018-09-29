@@ -62,10 +62,15 @@ void FSEGTObjectsContext::updateObject(shared_ptr<Object> object) {
     }    
 }
 
-void FSEGTObjectsContext::removeObject(shared_ptr<Object> ) {
+void FSEGTObjectsContext::removeObject(shared_ptr<Object> object) {
  
-	throw "FSEGTObjectsContext::removeObject unimplemented";
-   
+	objects->removeObject(object);
+
+    for (auto subscriber : subscribers) {
+        
+        subscriber->objectsContextObjectRemoved(shared_from_this(), object);
+        
+    }
 }
 
 void FSEGTObjectsContext::subscribe(shared_ptr<FSEGTObjectContextDelegate> delegate) {
