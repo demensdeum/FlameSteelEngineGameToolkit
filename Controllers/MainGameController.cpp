@@ -7,9 +7,6 @@
 
 #include "MainGameController.h"
 
-#define FSEGT_DEBUG_PRINT_ENABLED 0
-#define FSEGT_DEBUG_SHOW_FPS 0
-
 #include <iostream>
 
 #ifdef __EMSCRIPTEN__
@@ -25,6 +22,8 @@ static const float MainGameControllerStepTimePerSecond = 1.0 / MainGameControlle
 MainGameController::MainGameController() {
 
 	srand (time(nullptr));
+
+	previousFrameTime = std::chrono::system_clock::now();
 
     resourcesManager = make_shared<ResourcesManager>();
     resourcesLoader = make_shared<ResourcesLoader>();
@@ -108,8 +107,23 @@ void MainGameController::gameLoop() {
 
 #ifndef __EMSCRIPTEN__
     while (true) {
+
+	// 60 fps cap
+	auto nowTime = std::chrono::system_clock::now();
+
+	auto previousMS = std::chrono::time_point_cast<std::chrono::milliseconds>(previousFrameTime);
+	auto nowMS = std::chrono::time_point_cast<std::chrono::milliseconds>(nowTime);
+
+	if (nowMS > previousMS + std::chrono::milliseconds(16))
+	{
+		previousFrameTime = nowTime;
+	}
+	else
+	{
+		continue;
+	}
+
 #endif
-        clock_t begin = clock();
 
         this->pollGameControllerMessage();
 
@@ -136,29 +150,6 @@ void MainGameController::gameLoop() {
             
             exit(3);
         }
-
-        clock_t end = clock();
-
-        int timeSpentClicks = end - begin;
-        float timeSpentSeconds = ((float) timeSpentClicks) / CLOCKS_PER_SEC;
-
-#if FSEGT_DEBUG_SHOW_FPS
-        float fps = 1 / timeSpentSeconds;
-
-        printf("fps: %f\n", fps);
-#endif            
-
-#if FSEGT_DEBUG_PRINT_ENABLED
-        printf("It took me %d clicks (%f seconds).\n", timeSpentClicks, timeSpentSeconds);
-#endif
-
-        float sleepForMsFloat = MainGameControllerStepTimePerSecond - timeSpentSeconds;
-
-        int sleepForMs = sleepForMsFloat * 1000;
-
-#if FSEGT_DEBUG_PRINT_ENABLED
-        printf("sleepForMs: %d\n", sleepForMs);
-#endif        
 
 #ifndef __EMSCRIPTEN__                
     }

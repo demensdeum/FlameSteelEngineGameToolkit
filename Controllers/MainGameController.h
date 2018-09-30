@@ -12,6 +12,7 @@
 #include <map>
 #include <stdio.h>
 #include <stdlib.h>
+#include <chrono>
 #include <FlameSteelCore/Message.h>
 #include <FlameSteelCore/ResourcesLoader.h>
 #include <FlameSteelCore/ResourcesManager.h>
@@ -59,6 +60,9 @@ private:
 	void pollGameControllerMessage();
 	bool isRunning;
         bool printedSelf;
+
+	std::chrono::system_clock::time_point previousFrameTime;
+
 };
 
 #ifdef __EMSCRIPTEN__
