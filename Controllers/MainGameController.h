@@ -65,6 +65,10 @@ private:
 
 };
 
+
+}
+}
+
 #ifdef __EMSCRIPTEN__
 
 // oh god I don't like javascript for some ugly decisions like those
@@ -72,8 +76,5 @@ private:
 static MainGameController *GLOBAL_fsegt_emscripten_gameController;
 void GLOBAL_fsegt_emscripten_gameLoop();
 #endif
-
-}
-}
 
 #endif /* FSEGTGAMECONTROLLER_H_ */
