@@ -14,15 +14,27 @@
 #include "FSEGTAudioPlayer.h"
 
 FSEGTAudioPlayer::FSEGTAudioPlayer() {
+
+	Sound::initializeSoundSystem();
+
 }
 
 FSEGTAudioPlayer::FSEGTAudioPlayer(const FSEGTAudioPlayer& ) {
 }
 
-void FSEGTAudioPlayer::play(shared_ptr<string> ) {
-    
-    
-    
+void FSEGTAudioPlayer::play(shared_ptr<string> soundName) {
+
+	shared_ptr<Sound> sound = nullptr;
+
+	if (soundsMap.find(*soundName) == soundsMap.end()) {
+		sound = make_shared<Sound>(soundName);
+		soundsMap[*soundName] = sound;
+	}
+	else {
+		sound = soundsMap[*soundName];
+	}
+
+	sound->play();	
 }
 
 FSEGTAudioPlayer::~FSEGTAudioPlayer() {

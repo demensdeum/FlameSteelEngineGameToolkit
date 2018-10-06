@@ -14,12 +14,14 @@
 #ifndef FSEGTAUDIOPLAYER_H
 #define FSEGTAUDIOPLAYER_H
 
+#include <map>
 #include <string>
 #include <memory>
-
+#include <FlameSteelBattleHorn/Sound.h>
 #include <FlameSteelEngineGameToolkit/IO/IOSystems/FSEGTIOSystem.h>
 
 using namespace std;
+using namespace FlameSteelBattleHorn;
 
 class FSEGTAudioPlayer {
 public:
@@ -32,7 +34,8 @@ public:
     shared_ptr<FSEGTIOSystem> ioSystem;    
     
 private:
-
+	map<string, shared_ptr<Sound> > soundsMap;
+	
 };
 
 #endif /* FSEGTAUDIOPLAYER_H */
