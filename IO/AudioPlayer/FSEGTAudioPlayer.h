@@ -17,7 +17,7 @@
 #include <map>
 #include <string>
 #include <memory>
-#include <FlameSteelBattleHorn/Sound.h>
+#include <FlameSteelBattleHorn/Playable.h>
 #include <FlameSteelEngineGameToolkit/IO/IOSystems/FSEGTIOSystem.h>
 
 using namespace std;
@@ -34,7 +34,8 @@ public:
     shared_ptr<FSEGTIOSystem> ioSystem;    
     
 private:
-	map<string, shared_ptr<Sound> > soundsMap;
+	void loadAudioJSON(shared_ptr<string> path);
+	map<string, shared_ptr<Playable> > soundsMap;
 	
 };
 
