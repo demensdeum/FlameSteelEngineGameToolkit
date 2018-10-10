@@ -35,7 +35,12 @@ SurfaceMaterial::SurfaceMaterial(int width, int height) {
         exit(1);
     }
 
-	material = make_shared<FSGLMaterial>(surface);
-	material->surface = surface;
+			SDL_PixelFormat *pixelFormat = SDL_AllocFormat(SDL_PIXELFORMAT_RGBA32);
+			SDL_Surface *resultSurface = SDL_ConvertSurface(surface, pixelFormat, 0);
+			SDL_FreeSurface(surface);
+			SDL_FreeFormat(pixelFormat);
+
+	material = make_shared<FSGLMaterial>(resultSurface);
+	material->surface = resultSurface;
 
 }
