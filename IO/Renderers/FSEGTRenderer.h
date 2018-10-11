@@ -20,7 +20,7 @@ class FSEGTRenderer : public Object, public FSEGTObjectContextDelegate {
 public:
     FSEGTRenderer();
 
-    virtual void initialize();
+    virtual void initialize(shared_ptr<FSEGTIOSystemParams> params = nullptr);
 
     virtual void render(shared_ptr<FSEGTGameData> gameData);
 

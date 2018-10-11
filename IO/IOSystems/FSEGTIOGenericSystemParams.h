@@ -26,8 +26,6 @@ public:
     FSEGTIOGenericSystemParams(const FSEGTIOGenericSystemParams& orig);
     virtual ~FSEGTIOGenericSystemParams();
     
-    shared_ptr<string> title;
-    
     int width;
     int height;
     

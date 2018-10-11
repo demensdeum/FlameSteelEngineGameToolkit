@@ -26,6 +26,7 @@ public:
     FSEGTIOSystemParams(const FSEGTIOSystemParams& orig);
     virtual ~FSEGTIOSystemParams();
     
+    shared_ptr<string> title;
     shared_ptr<FSEGTObjectsContext> objectsContext;
     
 private:

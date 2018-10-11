@@ -13,7 +13,7 @@ FSEGTRenderer::FSEGTRenderer() {
 	ioSystem = nullptr;
 }
 
-void FSEGTRenderer::initialize() {
+void FSEGTRenderer::initialize(shared_ptr<FSEGTIOSystemParams> params) {
 
 }
 
