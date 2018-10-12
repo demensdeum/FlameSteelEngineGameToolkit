@@ -19,7 +19,7 @@ class FSEGTSerializedModel;
 
 using namespace FlameSteelEngine::GameToolkit;
 
-class FSEGTUtils: public Object {
+class FSEGTUtils {
 public:
 	FSEGTUtils();
         
