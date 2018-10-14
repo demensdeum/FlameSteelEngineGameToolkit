@@ -20,8 +20,8 @@ FSEGTRectangle::FSEGTRectangle(float x, float y, float width, float height) {
 	componentWidth->setInstanceIdentifier(make_shared<string>("width"));
 
 	auto componentHeight = make_shared<FSEGTIntegerComponent>(height);
-	componentWidth->setClassIdentifier(make_shared<string>("height"));
-	componentWidth->setInstanceIdentifier(make_shared<string>("height"));
+	componentHeight->setClassIdentifier(make_shared<string>("height"));
+	componentHeight->setInstanceIdentifier(make_shared<string>("height"));
 
 	this->addComponent(componentX);
 	this->addComponent(componentY);
