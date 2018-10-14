@@ -7,8 +7,8 @@
 
 #include <FlameSteelEngineGameToolkit/Data/Components/Integer/FSEGTIntegerComponent.h>
 
-FSEGTIntegerComponent::FSEGTIntegerComponent() {
-	value = 0;
+FSEGTIntegerComponent::FSEGTIntegerComponent(int value) {
+	this->value = value;
 }
 
 FSEGTIntegerComponent::~FSEGTIntegerComponent() {

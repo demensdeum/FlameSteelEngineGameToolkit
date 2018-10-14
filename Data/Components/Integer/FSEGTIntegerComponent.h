@@ -14,7 +14,7 @@ using namespace FlameSteelCore;
 
 class FSEGTIntegerComponent: public Object {
 public:
-	FSEGTIntegerComponent();
+	FSEGTIntegerComponent(int value);
 
 	int value;
 
