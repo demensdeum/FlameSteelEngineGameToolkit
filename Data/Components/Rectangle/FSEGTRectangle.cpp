@@ -5,7 +5,7 @@
 
 using namespace FlameSteelCore;
 
-FSEGTRectangle::FSEGTRectangle(int x, int y, int width, int height) {
+FSEGTRectangle::FSEGTRectangle(float x, float y, float width, float height) {
 
 	auto componentX = make_shared<FSEGTIntegerComponent>(x);
 	componentX->setClassIdentifier(make_shared<string>("x"));
@@ -30,47 +30,54 @@ FSEGTRectangle::FSEGTRectangle(int x, int y, int width, int height) {
 
 }
 
-int FSEGTRectangle::x() {
+float FSEGTRectangle::x() {
 	auto componentX = static_pointer_cast<FSEGTIntegerComponent>(getComponent(make_shared<string>("x")));
 	return componentX->value;
 }
 
-int FSEGTRectangle::y() {
+float FSEGTRectangle::y() {
 	auto componentX = static_pointer_cast<FSEGTIntegerComponent>(getComponent(make_shared<string>("y")));
 	return componentX->value;
 }
 
-int FSEGTRectangle::width() {
+float FSEGTRectangle::width() {
 	auto componentX = static_pointer_cast<FSEGTIntegerComponent>(getComponent(make_shared<string>("width")));
 	return componentX->value;
 }
 
-int FSEGTRectangle::height() {
+float FSEGTRectangle::height() {
 	auto componentX = static_pointer_cast<FSEGTIntegerComponent>(getComponent(make_shared<string>("height")));
 	return componentX->value;
 }
 
-void FSEGTRectangle::setX(int x) {
+void FSEGTRectangle::setX(float x) {
 	auto componentX = static_pointer_cast<FSEGTIntegerComponent>(getComponent(make_shared<string>("x")));
 	componentX->value = x;
 }
 
-void FSEGTRectangle::setY(int y) {
+void FSEGTRectangle::setY(float y) {
 	auto componentY = static_pointer_cast<FSEGTIntegerComponent>(getComponent(make_shared<string>("x")));
 	componentY->value = y;
 }
 
-void FSEGTRectangle::setWidth(int width) {
+void FSEGTRectangle::setWidth(float width) {
 	auto componentWidth = static_pointer_cast<FSEGTIntegerComponent>(getComponent(make_shared<string>("width")));
 	componentWidth->value = width;
 }
 
-void FSEGTRectangle::setHeight(int height) {
+void FSEGTRectangle::setHeight(float height) {
 	auto componentHeight = static_pointer_cast<FSEGTIntegerComponent>(getComponent(make_shared<string>("height")));
 	componentHeight->value = height;
 }
 
-bool FSEGTRectangle::isPointXYInside(int x, int y) {
+bool FSEGTRectangle::isPointXYInside(float x, float y, 
+											float rectangleDiffX, float rectangleDiffY) {
+
+	auto rectangleX = this->x() + rectangleDiffX;
+	auto rectangleY = this->y() + rectangleDiffY;
+
+	auto rectangleXX = rectangleX + width();
+	auto rectangleYY = rectangleY + height();
 
 	if (x >= this->x() && x <= this->x() + this->width()) {
 		if (y >= this->y() && y <= this->y() + this->height()) {

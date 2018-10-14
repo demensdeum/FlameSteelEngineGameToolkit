@@ -9,19 +9,19 @@ class FSEGTRectangle: public Object {
 
 public:
 
-	FSEGTRectangle(int x, int y, int width, int height);
+	FSEGTRectangle(float x, float y, float width, float height);
 
-	int x();
-	int y();
-	int width();
-	int height();
+	float x();
+	float y();
+	float width();
+	float height();
 
-	void setX(int x);
-	void setY(int y);
-	void setWidth(int width);
-	void setHeight(int height);
+	void setX(float x);
+	void setY(float y);
+	void setWidth(float width);
+	void setHeight(float height);
 
-	bool isPointXYInside(int x, int y);
+	bool isPointXYInside(float x, float y, float rectangleDiffX, float rectangleDiffY);
 
 };
 

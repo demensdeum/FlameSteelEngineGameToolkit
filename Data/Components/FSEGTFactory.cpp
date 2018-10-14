@@ -8,7 +8,15 @@
 #include <FlameSteelEngineGameToolkit/Const/FSEGTConst.h>
 #include <FlameSteelEngineGameToolkit/Data/Components/FSEGTFactory.h>
 #include <FlameSteelEngineGameToolkit/Data/Components/Sprite/FSEGTSprite.h>
+#include <FlameSteelEngineGameToolkit/Data/Components/Rectangle/FSEGTRectangle.h>
 #include <FlameSteelEngineGameToolkit/Data/Components/SerializedModel/FSEGTSerializedModel.h>
+
+shared_ptr<FSEGTRectangle> FSEGTFactory::makeRectangle(int x, int y, int width, int height) {
+
+	auto rectangle = make_shared<FSEGTRectangle>(x, y, width, height);
+
+	return rectangle;
+}
 
 shared_ptr <FSEGTModelReference> FSEGTFactory::makeModelReferenceComponent(shared_ptr<string> modelFilePath) {
 

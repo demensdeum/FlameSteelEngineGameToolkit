@@ -12,6 +12,7 @@
 #include <memory>
 #include <string>
 
+#include <FlameSteelEngineGameToolkit/Data/Components/Rectangle/FSEGTRectangle.h>
 #include <FlameSteelEngineGameToolkit/Data/Components/Boolean/BooleanComponent.h>
 #include <FlameSteelEngineGameToolkit/Data/Components/Float/FloatComponent.h>
 #include <FlameSteelEngineGameToolkit/Data/Components/Vector/FSEGTVector.h>
@@ -65,6 +66,7 @@ public:
 	static shared_ptr<FSEGTSerializedModel> makeSerializedModelComponent(shared_ptr<string> serializedModel);
 	static shared_ptr<FloatComponent> makeBrightnessComponent(float brightness);
 	static shared_ptr<SurfaceMaterial> makeSurfaceMaterialComponent(int width, int height);
+	static shared_ptr<FSEGTRectangle> makeRectangle(int x, int y, int width, int height);
 };
 
 #endif /* DATA_COMPONENTS_FSEGTCOMPONENTSGENERATOR_H_ */
