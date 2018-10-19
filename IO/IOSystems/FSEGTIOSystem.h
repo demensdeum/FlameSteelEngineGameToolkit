@@ -11,6 +11,7 @@
 #include <FlameSteelCore/Object.h>
 
 #include <FlameSteelCore/ResourcesManager.h>
+#include <FlameSteelEngineGameToolkit/Controllers/MaterialLibrary.h>
 #include <FlameSteelEngineGameToolkit/IO/IOSystems/FSEGTIOSystemParams.h>
 #include <FlameSteelEngineGameToolkit/IO/Input/FSEGTInputController.h>
 
@@ -34,7 +35,9 @@ public:
 
 	shared_ptr<FSEGTRenderer> renderer;
 	shared_ptr<FSEGTInputController> inputController;
-      shared_ptr<FSEGTAudioPlayer> audioPlayer;
+	shared_ptr<FSEGTAudioPlayer> audioPlayer;
+	shared_ptr<MaterialLibrary> materialLibrary;
+
 
 	virtual void stop();
 };
