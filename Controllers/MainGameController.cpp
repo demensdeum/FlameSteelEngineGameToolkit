@@ -16,9 +16,6 @@
 using namespace std;
 using namespace FlameSteelEngine::GameToolkit;
 
-static const int MainGameControllerFpsLock = 60;
-static const float MainGameControllerStepTimePerSecond = 1.0 / MainGameControllerFpsLock; // one second / fps lock
-
 MainGameController::MainGameController() {
 
 	srand (time(nullptr));

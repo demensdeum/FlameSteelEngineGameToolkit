@@ -79,8 +79,8 @@ bool FSEGTRectangle::isPointXYInside(float x, float y,
 	auto rectangleXX = rectangleX + width();
 	auto rectangleYY = rectangleY + height();
 
-	if (x >= this->x() && x <= this->x() + this->width()) {
-		if (y >= this->y() && y <= this->y() + this->height()) {
+	if (x >= this->x() && x <= rectangleXX) {
+		if (y >= this->y() && y <= rectangleYY) {
 			return true;
 		}
 	}
