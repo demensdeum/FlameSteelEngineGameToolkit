@@ -1,4 +1,7 @@
 #include "SurfaceMaterial.h"
+#include <iostream>
+
+using namespace std;
 
 using namespace FlameSteelEngine::GameToolkit;
 
@@ -35,12 +38,18 @@ SurfaceMaterial::SurfaceMaterial(int width, int height) {
         exit(1);
     }
 
-			SDL_PixelFormat *pixelFormat = SDL_AllocFormat(SDL_PIXELFORMAT_RGBA32);
-			SDL_Surface *resultSurface = SDL_ConvertSurface(surface, pixelFormat, 0);
-			SDL_FreeSurface(surface);
-			SDL_FreeFormat(pixelFormat);
+    SDL_PixelFormat *pixelFormat = SDL_AllocFormat(SDL_PIXELFORMAT_RGBA32);
+    SDL_Surface *resultSurface = SDL_ConvertSurface(surface, pixelFormat, 0);
+    SDL_FreeSurface(surface);
+    SDL_FreeFormat(pixelFormat);
 
 	material = make_shared<FSGLMaterial>(resultSurface);
 	material->surface = resultSurface;
 
+}
+
+SurfaceMaterial::~SurfaceMaterial() {
+    
+    cout << "Surface Materal destructed" << endl;
+    
 }

@@ -13,11 +13,13 @@ namespace GameToolkit {
 class SurfaceMaterial: public Object {
 
 public:
-	shared_ptr<FSGLMaterial> material;
-
 	SurfaceMaterial(shared_ptr<FSGLMaterial> material);
 	SurfaceMaterial(int width, int height);
+    
+    shared_ptr<FSGLMaterial> material;
 
+    ~SurfaceMaterial();
+    
 };
 
 };
