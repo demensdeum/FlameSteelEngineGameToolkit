@@ -49,7 +49,7 @@ public:
 
 	// listener
 	GameController *listener;
-	virtual void controllerDidFinish(Controller *controller);
+	virtual void controllerDidFinish(Controller *controller, shared_ptr<string> message);
 
 	virtual void receivedActionFromSender(int action, Object *sender);
 
@@ -58,7 +58,7 @@ public:
         
 protected:
 
-	virtual void notifyListenerAboutControllerDidFinish(GameController *controller);
+	virtual void notifyListenerAboutControllerDidFinish(GameController *controller, shared_ptr<string> message = nullptr);
 
 	shared_ptr<FSEGTIOSystem> ioSystem;
 

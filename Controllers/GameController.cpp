@@ -52,16 +52,16 @@ void GameController::receivedActionFromSender(int, Object *) {
 
 }
 
-void GameController::controllerDidFinish(Controller *controller) {
+void GameController::controllerDidFinish(Controller *controller, shared_ptr<string> message) {
 
 	throw logic_error("unhandled empty controller did finish notify");
 
 }
 
-void GameController::notifyListenerAboutControllerDidFinish(GameController *) {
+void GameController::notifyListenerAboutControllerDidFinish(GameController *gameController, shared_ptr<string> message) {
 	if (listener)
 	{
-		listener->controllerDidFinish(this);
+		listener->controllerDidFinish(gameController, message);
 	}
 }
 
