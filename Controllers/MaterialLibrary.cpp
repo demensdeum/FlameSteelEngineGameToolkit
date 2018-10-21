@@ -4,6 +4,10 @@ void MaterialLibrary::setMaterialForPath(shared_ptr<FSGLMaterial> material, shar
     pathMaterialMap[*path] = material;
 }
 
+void MaterialLibrary::setSurfaceMaterialForPath(shared_ptr<SurfaceMaterial> surfaceMaterial, shared_ptr<string> path) {
+    pathSurfaceMaterialMap[*path] = surfaceMaterial;
+}
+
 shared_ptr<FSGLMaterial> MaterialLibrary::materialForPath(shared_ptr<string> path) {
 
     auto key = *path;
@@ -16,8 +20,21 @@ shared_ptr<FSGLMaterial> MaterialLibrary::materialForPath(shared_ptr<string> pat
 
 }
 
+shared_ptr<SurfaceMaterial> MaterialLibrary::surfaceMaterialForPath(shared_ptr<string> path) {
+
+    auto key = *path;
+    
+    if (pathSurfaceMaterialMap.find(key) != pathSurfaceMaterialMap.end()) {
+        return pathSurfaceMaterialMap[key];
+    }
+    
+	return shared_ptr<SurfaceMaterial>();
+
+}
+
 void MaterialLibrary::clear() {
     
-    pathMaterialMap.clear();
+	pathSurfaceMaterialMap.clear();
+	pathMaterialMap.clear();
     
 }
