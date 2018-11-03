@@ -8,8 +8,12 @@
 #ifndef FSEGTINPUTCONTROLLER_H_
 #define FSEGTINPUTCONTROLLER_H_
 
-#include <FlameSteelCore/Object.h>
+#include <FlameSteelEngineGameToolkit/Data/Components/Touch/FSEGTTouch.h>
+#include <FlameSteelCore/Objects.h>
+#include <vector>
+#include <memory>
 
+using namespace std;
 using namespace FlameSteelCore;
 
 class FSEGTIOSystem;
@@ -37,6 +41,7 @@ public:
 	virtual int getPointerYdiff();
 
 	shared_ptr<FSEGTIOSystem> ioSystem;
+	shared_ptr<Objects> touches;
 
 	virtual ~FSEGTInputController();
 
@@ -53,6 +58,11 @@ public:
 
 	bool rotateLeftKeyPressed = false;
 	bool rotateRightKeyPressed = false;
+
+	void addTouch(shared_ptr<FSEGTTouch> touch);
+	void removeTouch(shared_ptr<FSEGTTouch> touch);
+
+	 void clearTouches();
 
 	int pointerXdiff = 0;
 	int pointerYdiff = 0;

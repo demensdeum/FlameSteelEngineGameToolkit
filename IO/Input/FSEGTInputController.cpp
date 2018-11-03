@@ -20,6 +20,15 @@ FSEGTInputController::FSEGTInputController() {
 
 	this->exitKeyPressed = false;
 	this->shootKeyPressed = false;
+
+	touches = make_shared<Objects>();
+
+}
+
+void FSEGTInputController::clearTouches() {
+
+		touches->removeAllObjects();
+
 }
 
 bool FSEGTInputController::isRotateLeftKeyPressed() {
