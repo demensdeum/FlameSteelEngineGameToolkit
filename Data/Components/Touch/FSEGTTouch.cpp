@@ -1,11 +1,11 @@
 #include "FSEGTTouch.h"
 
-FSEGTTouch::FSEGTTouch(int x, int y) {
+FSEGTTouch::FSEGTTouch(shared_ptr<string> uuid, int x, int y) {
 
 	this->x = x;
 	this->y = y;
 
-	this->setClassIdentifier(make_shared<string>(uuid));
-	this->setInstanceIdentifier(make_shared<string>(uuid));
+	this->setClassIdentifier(uuid);
+	this->setInstanceIdentifier(uuid);
 
 };

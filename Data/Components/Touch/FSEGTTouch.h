@@ -11,7 +11,7 @@ class FSEGTTouch: public Object {
 
 public:
 
-	FSEGTTouch(int x, int y);
+	FSEGTTouch(shared_ptr<string> uuid, int x, int y);
 
 	int x;
 	int y;
