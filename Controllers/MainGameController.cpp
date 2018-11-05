@@ -90,12 +90,12 @@ void MainGameController::switchToState(int state) {
 
     if (controller.get() == nullptr) {
 
-        cout << "Cannot get controller for state: " << state << endl;
+        //cout << "Cannot get controller for state: " << state << endl;
 
         exit(1);
     }
 
-    //cout << "Switch controller to state: " << state << endl;
+    ////cout << "Switch controller to state: " << state << endl;
     
     setCurrentController(controller);
 }
@@ -136,13 +136,13 @@ void MainGameController::gameLoop() {
        
         } else {
 
-            //cout << "MainGameController: no current controller to make a step. Quit." << endl;
+            ////cout << "MainGameController: no current controller to make a step. Quit." << endl;
             
             if (printedSelf == false) {
             
                 printedSelf = true;
                 
-            cout << this << endl;
+            //cout << this << endl;
             }
             
             exit(3);

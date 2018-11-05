@@ -23,7 +23,7 @@ void GameController::beforeStart() {
 
     if (ioSystem.get() == nullptr) {
         
-        cout << "Controller: cannot get ioSystem on controller switching. Is it even initialized? Exit";
+        //cout << "Controller: cannot get ioSystem on controller switching. Is it even initialized? Exit";
         
         exit(1);
         
@@ -31,7 +31,7 @@ void GameController::beforeStart() {
     
     if (ioSystem->renderer.get() == nullptr) {
         
-        cout << "Controller: cannot get ioSystem *Renderer* on controller switching. Is it even initialized? Exit";
+        //cout << "Controller: cannot get ioSystem *Renderer* on controller switching. Is it even initialized? Exit";
         
         exit(1);
         

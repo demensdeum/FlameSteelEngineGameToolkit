@@ -50,6 +50,6 @@ SurfaceMaterial::SurfaceMaterial(int width, int height) {
 
 SurfaceMaterial::~SurfaceMaterial() {
     
-    cout << "Surface Materal destructed" << endl;
+    //cout << "Surface Materal destructed" << endl;
     
 }

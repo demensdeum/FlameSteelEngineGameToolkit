@@ -51,7 +51,7 @@ void FSEGTAudioPlayer::loadAudioJSON(shared_ptr<string> path) {
 	string filePathRaw = fileJson["path"];
 	auto filePath = make_shared<string>(filePathRaw);
 
-	cout << length << endl;
+	//cout << length << endl;
 
 	auto playable = shared_ptr<Playable>();
 

@@ -13,6 +13,8 @@ StickController::StickController(shared_ptr<FSEGTInputController> inputControlle
 
 void StickController::step() {
 
+	//cout << "Stick controller step" << endl;
+
 	auto touches = inputController->touches;
 
 	bool viewTouchFound = false;
@@ -46,7 +48,7 @@ void StickController::step() {
 					moveStick->x = stickX;
 					moveStick->y = stickY;
 
-					cout << stickX << ";" << stickY << endl;
+					//cout << stickX << ";" << stickY << endl;
 				}
 
 			}
@@ -71,7 +73,7 @@ void StickController::step() {
 					viewStick->x = stickX;
 					viewStick->y = stickY;
 
-					cout << stickX << ";" << stickY << endl;
+					//cout << stickX << ";" << stickY << endl;
 				}
 
 			}
@@ -82,7 +84,7 @@ void StickController::step() {
 
 	if (!viewTouchFound && viewTouchUUID.get() != nullptr) {
 
-		cout << "Cleared view touch" << endl;
+		//cout << "Cleared view touch" << endl;
 		viewTouchUUID = nullptr;
 		viewStick = nullptr;
 
@@ -90,7 +92,7 @@ void StickController::step() {
 
 	if (!moveTouchFound && moveTouchUUID.get() != nullptr) {
 
-		cout << "Cleared move touch" << endl;
+		//cout << "Cleared move touch" << endl;
 		moveTouchUUID = nullptr;
 		moveStick = nullptr;
 
