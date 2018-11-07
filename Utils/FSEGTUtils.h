@@ -55,6 +55,7 @@ public:
 	static bool contains3D(shared_ptr<Object> object);
 
 	static bool isOnScreenObject(shared_ptr<Object> object);
+	static bool isSkyboxObject(shared_ptr<Object> object);
 
 	virtual ~FSEGTUtils();
 };

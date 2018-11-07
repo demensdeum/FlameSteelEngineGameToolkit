@@ -14,9 +14,23 @@ enum
 	FSEGTConstFloor
 };
 
+namespace FlameSteelEngine {
+namespace GameToolkit {
+namespace SceneLayer {
+enum
+{
+	Skybox,
+	Scene,
+	Screen
+};
+};
+};
+};
+
 #define FSEGTConstTextureSize 64
 #define FSEGT_MAX_TILES_COUNT 64
 
+static const string FSEGTConstComponentsFlagSkybox = "FSEGTConstComponentsFlagSkybox";
 static const string FSEGTConstComponentsFlag2D = "FSEGTConstComponentsFlag2D";
 static const string FSEGTConstComponentsScale = "Scale";
 static const string FSEGTConstComponentsPosition = "Position";
